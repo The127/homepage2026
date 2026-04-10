@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 3.5rem 0;
+  padding: 80px 3.5rem 0;
   overflow: hidden;
 }
 
@@ -219,7 +219,7 @@
 /* ── responsive ───────────────────────────── */
 
 @media (max-width: 900px) {
-  .hero { padding: 0 2rem; }
+  .hero { padding: 80px 2rem 0; }
   .scrollHint { display: none; }
   .bigNum { display: none; }
 }
@@ -228,4 +228,5 @@
   .name { font-size: clamp(3.5rem, 16vw, 10rem); }
   .termBody { max-width: 100%; min-width: unset; }
   .cta { flex-direction: column; align-items: flex-start; }
+  .cta a { max-width: 100%; }
 }
