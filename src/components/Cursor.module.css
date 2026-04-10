@@ -1,3 +1,7 @@
+@media (pointer: coarse) {
+  .cur, .ring { display: none; }
+}
+
 .cur {
   position: fixed;
   width: 8px;
