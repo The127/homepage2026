@@ -25,7 +25,7 @@ export default function About() {
           <p>
             Cloud engineer at <strong>Anexia</strong>, where we run Kubernetes
             as a service for teams who need it to just work. Before that, I built{' '}
-            <strong>QOperations</strong> at Phoenix GmbH / Hedgehog. Learned
+            <strong>QOperations</strong> at Phoenis GmbH / Hedgehog. Learned
             how to write software that ships.
           </p>
 
