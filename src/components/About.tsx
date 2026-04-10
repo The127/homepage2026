@@ -32,7 +32,7 @@ export default function About() {
           <p>
             Cloud engineer at <strong>Anexia</strong>, where we run Kubernetes
             as a service for teams who need it to just work. Before that, I built{' '}
-            <strong>QOperations</strong> at Phoenix GmbH / Hedgehog — learned
+            <strong>QOperations</strong> at Phoenix GmbH / Hedgehog. Learned
             how to write software that ships.
           </p>
 
@@ -43,7 +43,7 @@ export default function About() {
           </p>
 
           <p>
-            At home I run <strong>2 racks</strong> — Raspberry Pis, old servers,
+            At home I run <strong>2 racks</strong>: Raspberry Pis, old servers,
             Juniper switches. My own AI agent. My own DNS. My own everything.
             I also built an <strong>8-bit CPU from 74LS logic chips</strong> from
             scratch, because understanding things at the base level matters.

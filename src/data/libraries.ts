@@ -24,7 +24,7 @@ export const libraries: Library[] = [
   {
     lang: 'Rust',
     name: 'reconstitute',
-    desc: 'Derive macro for aggregate hydration — generates a {Name}State struct and reconstitute() constructor for rebuilding aggregates from persistent state.',
+    desc: 'Derive macro for aggregate hydration. Generates a {Name}State struct and reconstitute() constructor for rebuilding aggregates from persistent state.',
     accent: 'var(--r)',
     link: 'https://github.com/The127/reconstitute',
   },
@@ -45,7 +45,7 @@ export const libraries: Library[] = [
   {
     lang: 'Go',
     name: 'mediatr',
-    desc: 'Go mediator implementation inspired by C# MediatR. CQRS patterns without the ceremony. Commands, queries, handlers — clean and idiomatic.',
+    desc: 'Go mediator implementation inspired by C# MediatR. CQRS patterns without the ceremony. Commands, queries, handlers. Clean and idiomatic.',
     accent: 'var(--y)',
     link: 'https://github.com/The127/mediatr',
   },

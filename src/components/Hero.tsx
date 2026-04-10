@@ -42,7 +42,7 @@ export default function Hero() {
     };
 
     setTimeout(() => {
-      typeText(termOut, 'karolin kostial — cloud engineer, builder', () => {
+      typeText(termOut, 'karolin kostial, cloud engineer, builder', () => {
         setTimeout(() => {
           addCommand('ls infra/', '2x racks  juniper  raspberry-pis  ai-agent  ...', () => {
             setTimeout(() => {

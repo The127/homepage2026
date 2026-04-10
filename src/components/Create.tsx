@@ -9,7 +9,7 @@ export default function Create() {
         <div class={styles.eyebrow}>// outside the terminal</div>
         <h2 class={styles.title}>MUSIC</h2>
         <p class={styles.desc}>
-          I make music every once in a while — electronic, experimental,
+          I make music every once in a while. Electronic, experimental,
           somewhere between ambient and "what even is this." It's a good
           way to think about structure and flow without a compiler
           telling you you're wrong.
