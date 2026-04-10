@@ -21,12 +21,12 @@ export default function Projects() {
               {p.langs.map(l => <span class={styles.lang}>{l}</span>)}
             </div>
             <a
-              href={p.link}
+              href={p.repo}
               class={styles.link}
               target="_blank"
               rel="noopener"
             >
-              {p.linkLabel} →
+              GitHub →
             </a>
           </div>
         ))}

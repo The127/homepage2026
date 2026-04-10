@@ -5,8 +5,7 @@ export interface Project {
   desc: string;
   langs: string[];
   accent: string;
-  link: string;
-  linkLabel: string;
+  repo: string;
 }
 
 export const projects: Project[] = [
@@ -17,8 +16,7 @@ export const projects: Project[] = [
     desc: "Open-source OIDC server. Full OAuth2 / OpenID Connect implementation. Self-hostable identity infrastructure — because you shouldn't have to trust a SaaS with your auth.",
     langs: ['Go', 'OIDC', 'WebAuthn'],
     accent: 'var(--y)',
-    link: 'https://github.com/The127/Keyline',
-    linkLabel: 'View on GitHub',
+    repo: 'https://github.com/The127/Keyline',
   },
   {
     num: '02',
@@ -27,8 +25,7 @@ export const projects: Project[] = [
     desc: 'Self-hosted Sentry alternative. Error events grouped by fingerprint, real-time dashboards, client keys, roles. Written in Rust for the performance it deserves.',
     langs: ['Rust', 'Error Tracking'],
     accent: 'var(--r)',
-    link: 'https://meerkat.karo.gay',
-    linkLabel: 'Live Demo',
+    repo: 'https://github.com/The127/meerkat',
   },
   {
     num: '03',
@@ -37,8 +34,7 @@ export const projects: Project[] = [
     desc: 'Reliable webhook delivery for your infrastructure. Self-hosted, observable, built for production. Send, retry, deliver — and know when something breaks.',
     langs: ['Rust', 'Webhooks'],
     accent: 'var(--b)',
-    link: 'https://github.com/The127/pigeon',
-    linkLabel: 'View on GitHub',
+    repo: 'https://github.com/The127/pigeon',
   },
   {
     num: '04',
@@ -47,8 +43,7 @@ export const projects: Project[] = [
     desc: 'Lean, self-hosted task planning for high-performing software teams. Sprints, epics, milestones, and AI drones that actually help. Built it to use it. Use it every day.',
     langs: ['Go', 'AI Agents'],
     accent: 'var(--g)',
-    link: 'https://github.com/The127/hivetrack',
-    linkLabel: 'View on GitHub',
+    repo: 'https://github.com/The127/hivetrack',
   },
   {
     num: '05',
@@ -57,8 +52,7 @@ export const projects: Project[] = [
     desc: "Simple, fast, self-hostable OCI container registry written in Go. Because pulling images from Docker Hub is someone else's single point of failure.",
     langs: ['Go', 'OCI', 'Containers'],
     accent: 'var(--p)',
-    link: 'https://github.com/The127/dockyard',
-    linkLabel: 'View on GitHub',
+    repo: 'https://github.com/The127/dockyard',
   },
   {
     num: '06',
@@ -67,7 +61,6 @@ export const projects: Project[] = [
     desc: 'Simple, lightweight, fast key-value store with distributed storage. Written in Rust. Sometimes you need a KV store and you want to know exactly how it works.',
     langs: ['Rust', 'Distributed', 'Storage'],
     accent: 'var(--b)',
-    link: 'https://github.com/The127/mako',
-    linkLabel: 'View on GitHub',
+    repo: 'https://github.com/The127/mako',
   },
 ];
