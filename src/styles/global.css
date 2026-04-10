@@ -53,10 +53,14 @@ body::after {
   animation: grain 8s steps(10) infinite;
 }
 
-/* scrollbar */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--y); }
+/* scrollbar — wide hitbox, thin visual bar */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--y);
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
 
 /* ── keyframes ─────────────────────────────── */
 

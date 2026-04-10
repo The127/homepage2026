@@ -11,7 +11,6 @@ export default function Create() {
   return (
     <section id="create" class={styles.section}>
       <div class={styles.music}>
-        <div class={styles.bgText} aria-hidden="true">♫</div>
         <div class={styles.eyebrow}>// outside the terminal</div>
         <h2 class={styles.title}>MUSIC</h2>
         <p class={styles.desc}>
@@ -81,8 +80,6 @@ export default function Create() {
       </div>
 
       <div class={styles.art}>
-        <div class={styles.bgText} aria-hidden="true">◉</div>
-
         <div class={styles.miniGallery}>
           <div class={styles.miniWrap} style={{ '--img': 'url(/wh/captain.webp)' }}>
             <img src="/wh/captain.webp" alt="Ultramarines jump pack captain" class={styles.mini} loading="lazy" />
