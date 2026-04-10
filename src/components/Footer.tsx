@@ -15,8 +15,10 @@ export default function Footer() {
 
       <div class={styles.links}>
         <a href="https://github.com/The127" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://keyline.karo.gay" target="_blank" rel="noopener">Keyline</a>
-        <a href="https://meerkat.karo.gay" target="_blank" rel="noopener">Meerkat</a>
+      </div>
+
+      <div class={styles.cookie}>
+        🍪 this site uses <strong>0 cookies</strong>. for cookies, check your kitchen.
       </div>
 
       <div class={styles.copy}>Karolin Kostial · 2026</div>

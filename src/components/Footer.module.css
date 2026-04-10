@@ -52,6 +52,18 @@
   color: var(--text);
 }
 
+.cookie {
+  font-size: 0.62rem;
+  color: var(--dim);
+  font-style: italic;
+}
+
+.cookie strong {
+  color: var(--y);
+  font-style: normal;
+  font-weight: 400;
+}
+
 .copy {
   font-size: 0.6rem;
   color: var(--dim);
