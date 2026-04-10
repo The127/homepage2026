@@ -1,0 +1,42 @@
+.head {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.num {
+  font-family: var(--ff-d);
+  font-size: 6rem;
+  color: var(--border2);
+  line-height: 1;
+  min-width: 80px;
+  user-select: none;
+}
+
+.group {
+  flex: 1;
+}
+
+.eye {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  color: var(--y);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.title {
+  font-family: var(--ff-d);
+  font-size: clamp(2.5rem, 4.5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+
+.rule {
+  width: 50px;
+  height: 3px;
+  background: var(--y);
+  margin-top: 1.2rem;
+}

@@ -1,0 +1,223 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3.5rem 0;
+  overflow: hidden;
+}
+
+/* ── background ───────────────────────────── */
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse 80% 90% at 50% 50%, black, transparent);
+  pointer-events: none;
+}
+
+.slash {
+  position: absolute;
+  top: -20%;
+  right: 26%;
+  width: 3px;
+  height: 140%;
+  background: var(--y);
+  transform: rotate(-18deg);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.slash2 {
+  right: 27.8%;
+  width: 1px;
+  opacity: 0.06;
+}
+
+.sq {
+  position: absolute;
+  border: 1px solid var(--border2);
+  pointer-events: none;
+  animation: sq-rot 30s linear infinite;
+}
+
+.sq1 { width: 320px; height: 320px; right: 6%;  top: 10%; }
+.sq2 { width: 160px; height: 160px; right: 13%; top: 48%; border-color: rgba(255,229,0,.25); animation-direction: reverse; animation-duration: 20s; }
+.sq3 { width:  60px; height:  60px; right:  3%; top: 72%; border-color: rgba(255,45,70,.3);  animation-duration: 12s; }
+.sq4 { width:  80px; height:  80px; left:   2%; top: 20%; border-color: rgba(56,212,255,.15); animation-direction: reverse; animation-duration: 25s; }
+
+.bigNum {
+  position: absolute;
+  right: -1rem;
+  bottom: -2rem;
+  font-family: var(--ff-d);
+  font-size: clamp(12rem, 22vw, 22rem);
+  color: var(--bg2);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  animation: fade-in 1s 0.8s ease forwards;
+}
+
+/* ── content ──────────────────────────────── */
+
+.eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: var(--y);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fade-up 0.5s 0.2s ease forwards;
+  position: relative;
+}
+
+.name {
+  font-family: var(--ff-d);
+  font-size: clamp(4.5rem, 13.5vw, 13.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.line1,
+.line2 {
+  display: block;
+  overflow: hidden;
+}
+
+.line1 em,
+.line2 em {
+  display: block;
+  font-style: normal;
+  transform: translateY(110%);
+  animation: slide-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.line2 em {
+  color: var(--y);
+  text-shadow: 5px 5px 0 var(--r);
+  animation-delay: 0.12s;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.9;
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  animation: fade-up 0.5s 0.5s ease forwards;
+}
+
+.tagline strong {
+  color: var(--b);
+  font-weight: 400;
+}
+
+/* ── terminal ─────────────────────────────── */
+
+.terminal {
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fade-up 0.5s 0.65s ease forwards;
+  position: relative;
+}
+
+.termBody {
+  font-size: 0.78rem;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--y);
+  padding: 1rem 1.4rem;
+  display: inline-block;
+  min-width: 360px;
+  max-width: 480px;
+}
+
+.termLine {
+  display: block;
+}
+
+.prompt {
+  color: var(--y);
+  margin-right: 0.5rem;
+}
+
+.cmd {
+  color: var(--text);
+}
+
+.out {
+  color: var(--muted);
+  padding-left: 1.2rem;
+  min-height: 1.2em;
+}
+
+.blink {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  background: var(--y);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+/* ── cta ──────────────────────────────────── */
+
+.cta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  opacity: 0;
+  animation: fade-up 0.5s 0.8s ease forwards;
+  position: relative;
+}
+
+/* ── scroll hint ──────────────────────────── */
+
+.scrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  color: var(--dim);
+  writing-mode: vertical-rl;
+  opacity: 0;
+  animation: fade-in 0.5s 1.4s ease forwards;
+}
+
+.scrollHint::after {
+  content: '';
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(var(--dim), transparent);
+}
+
+/* ── responsive ───────────────────────────── */
+
+@media (max-width: 900px) {
+  .hero { padding: 0 2rem; }
+  .scrollHint { display: none; }
+  .bigNum { display: none; }
+}
+
+@media (max-width: 600px) {
+  .name { font-size: clamp(3.5rem, 16vw, 10rem); }
+  .termBody { max-width: 100%; min-width: unset; }
+  .cta { flex-direction: column; align-items: flex-start; }
+}

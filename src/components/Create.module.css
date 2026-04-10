@@ -1,0 +1,102 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 65vh;
+}
+
+/* ── shared panel ─────────────────────────── */
+
+.music,
+.art {
+  padding: 5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.music {
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+}
+
+.art {
+  background: var(--bg2);
+}
+
+.bgText {
+  position: absolute;
+  font-family: var(--ff-d);
+  font-size: 18rem;
+  line-height: 1;
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  bottom: -1rem;
+  right: -1rem;
+  color: var(--text);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.eyebrow {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+
+.music .eyebrow {
+  color: var(--b);
+}
+
+.art .eyebrow {
+  color: var(--r);
+}
+
+.title {
+  font-family: var(--ff-d);
+  font-size: 4.5rem;
+  line-height: 0.95;
+  color: var(--text);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 42ch;
+  position: relative;
+}
+
+/* ── bottom accent bars ───────────────────── */
+
+.barMusic,
+.barArt {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.barMusic {
+  background: linear-gradient(90deg, var(--b), transparent 70%);
+}
+
+.barArt {
+  background: linear-gradient(90deg, var(--r), transparent 70%);
+}
+
+@media (max-width: 900px) {
+  .section { grid-template-columns: 1fr; }
+  .music { border-right: none; border-bottom: 1px solid var(--border); }
+}

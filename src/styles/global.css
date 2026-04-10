@@ -1,0 +1,169 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:      #08070f;
+  --bg2:     #0d0c1a;
+  --bg3:     #131228;
+  --border:  #1e1c35;
+  --border2: #2a2848;
+  --text:    #f0ece8;
+  --muted:   #5e5c82;
+  --dim:     #3a3860;
+
+  --y: #ffe500;
+  --r: #ff2d46;
+  --b: #38d4ff;
+  --g: #3dffa0;
+  --p: #b060ff;
+
+  --ff-d: 'Bebas Neue', sans-serif;
+  --ff-m: 'IBM Plex Mono', monospace;
+  --ff-s: 'Cormorant Garamond', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-m);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* animated grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 8s steps(10) infinite;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--y); }
+
+/* ── keyframes ─────────────────────────────── */
+
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-4%, -5%); }
+  20%  { transform: translate(5%, 4%); }
+  30%  { transform: translate(-3%, 3%); }
+  40%  { transform: translate(4%, -3%); }
+  50%  { transform: translate(-5%, 2%); }
+  60%  { transform: translate(3%, -4%); }
+  70%  { transform: translate(0, 5%); }
+  80%  { transform: translate(-4%, 0); }
+  90%  { transform: translate(5%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes sq-rot {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slide-up {
+  to { transform: translateY(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ── scroll reveal ─────────────────────────── */
+
+.rv {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── shared buttons ────────────────────────── */
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-family: var(--ff-m);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-y {
+  background: var(--y);
+  color: #000;
+}
+.btn-y:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0 var(--r);
+}
+
+.btn-ghost {
+  border: 1.5px solid var(--border2);
+  color: var(--muted);
+}
+.btn-ghost:hover {
+  border-color: var(--b);
+  color: var(--b);
+}
+
+/* ── shared tag ────────────────────────────── */
+
+.tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--border2);
+  color: var(--dim);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: none;
+}
+.tag:hover {
+  border-color: var(--y);
+  color: var(--y);
+}
+
+/* ── mobile cursor restore ─────────────────── */
+@media (max-width: 600px) {
+  body { cursor: auto; }
+}

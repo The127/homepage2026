@@ -1,0 +1,21 @@
+.cur {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--y);
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--y);
+  pointer-events: none;
+  z-index: 9997;
+  mix-blend-mode: difference;
+  will-change: transform;
+}

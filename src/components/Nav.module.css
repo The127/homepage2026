@@ -1,0 +1,73 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 3.5rem;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+.stuck {
+  background: rgba(8, 7, 15, 0.92);
+  backdrop-filter: blur(16px);
+  border-color: var(--border);
+}
+
+.logo {
+  font-family: var(--ff-d);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  color: var(--y);
+  text-decoration: none;
+  cursor: none;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.links a {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+  cursor: none;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--y);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.links a:hover {
+  color: var(--y);
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .nav { padding: 1.2rem 2rem; }
+  .links { gap: 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .links { display: none; }
+}
