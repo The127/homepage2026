@@ -1,18 +1,6 @@
 import SectionHeader from './SectionHeader';
 import styles from './About.module.css';
 
-const stats = [
-  { n: '54', label: 'Public repos' },
-  { n: '3', label: 'Primary languages' },
-  { n: '2', label: 'Server racks' },
-  { n: '1', label: 'Custom CPU' },
-];
-
-const tags = [
-  'Cloud Engineering', 'Distributed Systems', 'Auth / OIDC',
-  'Rust', 'Go', 'C#', 'Homelab', 'Open Source', 'Compilers', 'Hardware',
-];
-
 export default function About() {
   return (
     <section id="about" class={styles.section}>
@@ -49,18 +37,29 @@ export default function About() {
             scratch, because understanding things at the base level matters.
           </p>
 
-          <div class={styles.stats}>
-            {stats.map(s => (
-              <div>
-                <div class={styles.statN}>{s.n}</div>
-                <div class={styles.statL}>{s.label}</div>
-              </div>
-            ))}
+          <div class={styles.meta}>
+            <div class={styles.metaItem}>
+              <span class={styles.metaLabel}>Education</span>
+              <span class={styles.metaValue}>M.Sc. Computer Science</span>
+            </div>
+            <div class={styles.metaItem}>
+              <span class={styles.metaLabel}>Languages</span>
+              <span class={styles.metaValue}>
+                German <span class={styles.metaNote}>(native)</span>
+                {' · '}
+                English <span class={styles.metaNote}>(C1/C2)</span>
+                {' · '}
+                Chinese <span class={styles.metaNote}>(HSK2, learning)</span>
+              </span>
+            </div>
           </div>
 
           <div class={styles.tags}>
-            {tags.map(t => <span class="tag">{t}</span>)}
+            {['Cloud Engineering', 'Distributed Systems', 'Auth / OIDC',
+              'Rust', 'Go', 'C#', 'Homelab', 'Open Source', 'Compilers', 'Hardware'
+            ].map(t => <span class="tag">{t}</span>)}
           </div>
+
         </div>
       </div>
     </section>

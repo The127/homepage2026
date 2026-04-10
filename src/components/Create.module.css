@@ -1,6 +1,10 @@
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
   min-height: 65vh;
 }
 
@@ -11,7 +15,6 @@
   padding: 5rem 3.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   position: relative;
   overflow: hidden;
 }
@@ -23,6 +26,7 @@
 
 .art {
   background: var(--bg2);
+  justify-content: flex-end;
 }
 
 .bgText {
@@ -38,12 +42,6 @@
   color: var(--text);
 }
 
-.icon {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
 .eyebrow {
   font-size: 0.6rem;
   letter-spacing: 0.3em;
@@ -52,13 +50,8 @@
   position: relative;
 }
 
-.music .eyebrow {
-  color: var(--b);
-}
-
-.art .eyebrow {
-  color: var(--r);
-}
+.music .eyebrow { color: var(--b); }
+.art .eyebrow   { color: var(--r); }
 
 .title {
   font-family: var(--ff-d);
@@ -73,8 +66,201 @@
   font-size: 0.78rem;
   color: var(--muted);
   line-height: 1.85;
-  max-width: 42ch;
+  max-width: 48ch;
   position: relative;
+}
+
+.desc strong {
+  color: var(--b);
+  font-weight: 400;
+}
+
+/* ── vinyl records ────────────────────────── */
+
+.records {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  overflow: visible;
+  padding-top: 100px;
+  margin-top: 1rem;
+}
+
+.recordWrap {
+  position: relative;
+  width: 160px;
+  flex-shrink: 0;
+  cursor: none;
+}
+
+/* ── sleeve (album art, sits on top) ─────── */
+
+.sleeve {
+  width: 160px;
+  height: 160px;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow:
+    4px 6px 0 rgba(0,0,0,0.5),
+    0 10px 28px rgba(0,0,0,0.65);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.recordWrap:hover .sleeve {
+  border-color: rgba(255,255,255,0.38);
+  box-shadow:
+    4px 6px 0 rgba(0,0,0,0.5),
+    0 14px 36px rgba(0,0,0,0.75);
+}
+
+.sleeveImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── vinyl (behind sleeve, slides up) ────── */
+
+/* outer wrapper handles the translate only */
+.vinylSlide {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.recordWrap:hover .vinylSlide {
+  transform: translateY(-70%) translateX(6%) rotate(12deg);
+}
+
+/* inner element handles spin only */
+.vinyl {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--vc, #1a1a1a);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08),
+    0 4px 24px rgba(0,0,0,0.6);
+  position: relative;
+  animation: spin 5s linear infinite;
+  animation-play-state: paused;
+}
+
+.recordWrap:hover .vinyl {
+  animation-play-state: running;
+}
+
+/* groove rings — dark bands over the colour give the schlieren depth */
+.grooves {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      rgba(0,0,0,0.55) 0px,
+      rgba(0,0,0,0.55) 2px,
+      transparent       2px,
+      transparent       5px
+    );
+}
+
+/* sheen overlay — a bright arc that stays fixed while the vinyl spins beneath */
+.grooves::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 200deg,
+    transparent 0deg,
+    rgba(255,255,255,0.07) 30deg,
+    rgba(255,255,255,0.18) 60deg,
+    rgba(255,255,255,0.07) 90deg,
+    transparent 120deg
+  );
+  animation: spin 5s linear infinite reverse;
+  animation-play-state: inherit;
+}
+
+/* album art label (center circle) */
+.label {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.labelImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* center spindle hole */
+.hole {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 0 1px #333;
+}
+
+/* ── info below sleeve ────────────────────── */
+
+.recordInfo {
+  margin-top: 0.7rem;
+  text-align: center;
+}
+
+.recordTitle {
+  display: block;
+  font-family: var(--ff-d);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.recordLinks {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.recordLink {
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+  cursor: none;
+}
+
+.recordLink:hover {
+  color: var(--b);
+  border-color: var(--b);
 }
 
 /* ── bottom accent bars ───────────────────── */
@@ -88,15 +274,35 @@
   height: 2px;
 }
 
-.barMusic {
-  background: linear-gradient(90deg, var(--b), transparent 70%);
-}
+.barMusic { background: linear-gradient(90deg, var(--b), transparent 70%); }
+.barArt   { background: linear-gradient(90deg, var(--r), transparent 70%); }
 
-.barArt {
-  background: linear-gradient(90deg, var(--r), transparent 70%);
-}
+/* ── responsive ───────────────────────────── */
 
 @media (max-width: 900px) {
   .section { grid-template-columns: 1fr; }
   .music { border-right: none; border-bottom: 1px solid var(--border); }
+  .art { justify-content: flex-start; }
+}
+
+@media (max-width: 600px) {
+  .music, .art { padding: 4rem 2rem; }
+  .records { flex-direction: column; gap: 1.5rem; padding-top: 1rem; }
+  .recordWrap { flex-direction: row; align-items: center; width: 100%; gap: 1.2rem; }
+  .sleeve { width: 110px; height: 110px; flex-shrink: 0; }
+  .vinyl { width: 84px; height: 84px; }
+  .vinylSlide { top: 13px; left: 13px; }
+  .recordWrap:hover .vinylSlide {
+    transform: translateX(115%) translateY(-6%) rotate(12deg);
+  }
+  .recordInfo { text-align: left; }
+  .recordLinks {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .recordWrap:hover .recordLinks {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

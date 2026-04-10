@@ -5,7 +5,7 @@ import styles from './Libraries.module.css';
 export default function Libraries() {
   return (
     <section id="libs" class={styles.section}>
-      <SectionHeader num="03" eyebrow="// the ecosystem" title="LIBRARIES" />
+      <SectionHeader num="04" eyebrow="// the ecosystem" title="LIBRARIES" />
 
       <div class={styles.grid}>
         {libraries.map((lib, i) => (

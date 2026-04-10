@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Ticker from './components/Ticker';
 import About from './components/About';
+import Stack from './components/Stack';
 import Projects from './components/Projects';
 import Libraries from './components/Libraries';
 import Books from './components/Books';
@@ -37,6 +38,7 @@ export default function App() {
       <Hero />
       <Ticker />
       <About />
+      <Stack />
       <Projects />
       <Libraries />
       <Books />

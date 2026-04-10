@@ -5,7 +5,7 @@ import styles from './Books.module.css';
 export default function Books() {
   return (
     <section id="books" class={styles.section}>
-      <SectionHeader num="04" eyebrow="// what I read" title="THE SHELF" />
+      <SectionHeader num="05" eyebrow="// what I read" title="THE SHELF" />
 
       <div class={styles.shelf}>
         {books.map((b, i) => (

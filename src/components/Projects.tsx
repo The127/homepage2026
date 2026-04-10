@@ -5,7 +5,7 @@ import styles from './Projects.module.css';
 export default function Projects() {
   return (
     <section id="projects" class={styles.section}>
-      <SectionHeader num="02" eyebrow="// what I build" title="PROJECTS" />
+      <SectionHeader num="03" eyebrow="// what I build" title="PROJECTS" />
 
       <div class={styles.grid}>
         {projects.map((p, i) => (

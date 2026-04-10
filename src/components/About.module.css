@@ -87,28 +87,41 @@
   color: var(--y);
 }
 
-/* ── stats ────────────────────────────────── */
 
-.stats {
+/* ── meta ─────────────────────────────────── */
+
+.meta {
   display: flex;
-  gap: 3rem;
-  margin-top: 2.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+  padding: 1rem 1.2rem;
+  border-left: 2px solid var(--border2);
 }
 
-.statN {
-  font-family: var(--ff-d);
-  font-size: 2.8rem;
+.metaItem {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.72rem;
+  align-items: baseline;
+}
+
+.metaLabel {
   color: var(--y);
-  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.58rem;
+  min-width: 6rem;
+  flex-shrink: 0;
 }
 
-.statL {
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
+.metaValue {
+  color: var(--text);
+}
+
+.metaNote {
   color: var(--muted);
-  text-transform: uppercase;
-  margin-top: 0.2rem;
+  font-size: 0.65rem;
 }
 
 /* ── tags ─────────────────────────────────── */
