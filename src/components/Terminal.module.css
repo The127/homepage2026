@@ -21,7 +21,7 @@
 
   width: 100%;
   max-width: 580px;
-  height: 108px;
+  height: 178px;
   overflow: hidden;
   transition:
     height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
@@ -105,6 +105,7 @@
 
 .termBody {
   font-size: 0.78rem;
+  line-height: 18px; /* integer px: no sub-pixel accumulation across dynamic lines */
   padding: 0.7rem 1.2rem 0.8rem;
   flex: 1;
   overflow: hidden;
@@ -122,7 +123,7 @@
 .out {
   color: var(--muted);
   padding-left: 1.2rem;
-  min-height: 1.2em;
+  min-height: 18px; /* match line-height exactly so empty element height = filled height */
 }
 
 .blink {
