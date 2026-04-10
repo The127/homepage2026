@@ -28,7 +28,7 @@ export default function NowPlaying() {
       <div class={styles.info}>
         <span class={styles.label}>NOW PLAYING</span>
         <span class={styles.track}>{activeAlbum()?.tracks[trackIdx()]?.title ?? ''}</span>
-        <span class={styles.album}>{activeAlbum()?.title ?? ''} — Lia Aura</span>
+        <span class={styles.album}>{activeAlbum()?.title ?? ''} / Lia Aura</span>
       </div>
 
       {/* equaliser */}

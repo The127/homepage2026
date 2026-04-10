@@ -45,7 +45,6 @@ export default function About() {
           <p>
             My favourite animal is the <strong>raccoon</strong>. Highly adaptable,
             nocturnal, and perpetually getting into things they probably shouldn't.
-            Relatable.
           </p>
 
           <div class={styles.meta}>

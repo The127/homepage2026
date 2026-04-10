@@ -111,6 +111,13 @@
   letter-spacing: 0.24em;
 }
 
+.soon {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--dim);
+  font-style: italic;
+}
+
 @media (max-width: 900px) {
   .section { padding: 5rem 2rem; }
 }

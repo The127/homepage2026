@@ -5,7 +5,7 @@ export interface Project {
   desc: string;
   langs: string[];
   accent: string;
-  repo: string;
+  repo: string | null;
 }
 
 export const projects: Project[] = [
@@ -62,5 +62,14 @@ export const projects: Project[] = [
     langs: ['Rust', 'Distributed', 'Storage'],
     accent: 'var(--b)',
     repo: 'https://github.com/The127/mako',
+  },
+  {
+    num: '07',
+    kind: 'Language Learning',
+    name: 'HSK-TRAINER',
+    desc: 'HSK 2.0 / 3.0 vocabulary trainer with spaced repetition and interactive games. Built to actually learn Chinese, not just to have a side project.',
+    langs: ['Rust', 'Vue 3', 'OIDC'],
+    accent: 'var(--g)',
+    repo: null,
   },
 ];

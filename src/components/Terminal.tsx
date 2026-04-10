@@ -84,23 +84,24 @@ Interests:  Compilers, Auth/OIDC, distributed systems`,
   'projects.txt': `54 public repositories on github.com/The127
 
 Highlights:
-  Keyline      — OIDC / OAuth2 server (Go)
-  Meerkat      — self-hosted error tracker (Rust)
-  Pigeon       — webhook delivery engine (Rust)
-  Hivetrack    — task planning + AI agents (Go)
-  Dockyard     — OCI container registry (Go)
-  Mako         — distributed KV store (Rust)
+  Keyline      - OIDC / OAuth2 server (Go)
+  Meerkat      - self-hosted error tracker (Rust)
+  Pigeon       - webhook delivery engine (Rust)
+  Hivetrack    - task planning + AI agents (Go)
+  Dockyard     - OCI container registry (Go)
+  Mako         - distributed KV store (Rust)
+  hsk-trainer  - HSK vocabulary trainer, spaced repetition (Rust + Vue)
 
-All open-source. No demos. Real infrastructure primitives.`,
+`,
 
   'music.txt': `Artist:   Lia Aura
 Genre:    Cinematic / Electronic / Orchestral
 
 Albums:
-  Journey      — 6 tracks
-  Forces       — 6 tracks
-  Opportunity  — 6 tracks
-  Nightfall    — 6 tracks
+  Journey      - 6 tracks
+  Forces       - 6 tracks
+  Opportunity  - 6 tracks
+  Nightfall    - 6 tracks
 
 Also paints Warhammer miniatures.
 Most liked Reddit post: 150+ upvotes. Skill issue.`,
@@ -108,16 +109,13 @@ Most liked Reddit post: 150+ upvotes. Skill issue.`,
   'contact.txt': `GitHub:   github.com/The127
 Location: Karlsruhe, Germany`,
 
-  'raccoon.txt': `Procyon lotor — the common raccoon.
+  'raccoon.txt': `Procyon lotor. The common raccoon.
 
 Highly adaptable. Nocturnal. Perpetually getting into things
-they probably shouldn't. Excellent problem solvers. Famously
-washes food — not because it needs to, but because it can.
+they probably shouldn't. Excellent problem solvers.
 Impressive manual dexterity for a non-primate.
 
-Also: adorable.
-
-Relatable.`,
+Also: adorable.`,
 
   '.secrets': `no.`,
 };
@@ -154,7 +152,7 @@ function runCommand(raw: string, history: string[]): { lines: Line[]; action?: '
       )] };
 
     case 'whoami':
-      return { lines: [out('karolin kostial — cloud engineer, builder, raccoon enthusiast')] };
+      return { lines: [out('karolin kostial, cloud engineer, builder, raccoon enthusiast')] };
 
     case 'pwd':
       return { lines: [out('/home/karolin')] };
@@ -186,7 +184,7 @@ drwxr-xr-x  karolin  karolin  projects/
       }
 
       if (path === 'projects/' || path === 'projects') {
-        return { lines: [out('Keyline/  Meerkat/  Pigeon/  Hivetrack/  Dockyard/  Mako/  ...and 48 more')] };
+        return { lines: [out('Keyline/  Meerkat/  Pigeon/  Hivetrack/  Dockyard/  Mako/  hsk-trainer/  ...and 47 more')] };
       }
 
       return { lines: [err(`ls: ${path}: No such file or directory`)] };
@@ -287,7 +285,7 @@ commit d4e5f6a
  ( ==  ▼  == )
   \\  \\_|_/  /   Highly adaptable.
    \\       /    Gets into everything.
-    \\_____/     Relatable.`
+    \\_____/     Adorable.`
       )] };
 
     case 'ssh':
