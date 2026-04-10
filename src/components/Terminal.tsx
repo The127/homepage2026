@@ -84,9 +84,12 @@ Interests:  Compilers, Auth/OIDC, distributed systems`,
   'projects.txt': `54 public repositories on github.com/The127
 
 Highlights:
-  mucko        — Kubernetes controller framework (Go)
-  free5iss     — OIDC / OAuth2 server (Go)
-  ...and ~50 more production-grade tools
+  Keyline      — OIDC / OAuth2 server (Go)
+  Meerkat      — self-hosted error tracker (Rust)
+  Pigeon       — webhook delivery engine (Rust)
+  Hivetrack    — task planning + AI agents (Go)
+  Dockyard     — OCI container registry (Go)
+  Mako         — distributed KV store (Rust)
 
 All open-source. No demos. Real infrastructure primitives.`,
 
@@ -94,10 +97,10 @@ All open-source. No demos. Real infrastructure primitives.`,
 Genre:    Cinematic / Electronic / Orchestral
 
 Albums:
-  Journey      — 11 tracks
-  Forces       — 8 tracks
-  Opportunity  — 9 tracks
-  Nightfall    — 10 tracks
+  Journey      — 6 tracks
+  Forces       — 6 tracks
+  Opportunity  — 6 tracks
+  Nightfall    — 6 tracks
 
 Also paints Warhammer miniatures.
 Most liked Reddit post: 150+ upvotes. Skill issue.`,
@@ -183,7 +186,7 @@ drwxr-xr-x  karolin  karolin  projects/
       }
 
       if (path === 'projects/' || path === 'projects') {
-        return { lines: [out('mucko/  free5iss/  ...and 52 more  (github.com/The127)')] };
+        return { lines: [out('Keyline/  Meerkat/  Pigeon/  Hivetrack/  Dockyard/  Mako/  ...and 48 more')] };
       }
 
       return { lines: [err(`ls: ${path}: No such file or directory`)] };
@@ -322,8 +325,14 @@ commit d4e5f6a
 
 // ── component ──────────────────────────────────────────────────────────────────
 
-export default function Terminal() {
+interface TerminalProps {
+  onExpandChange?: (v: boolean) => void;
+}
+
+export default function Terminal(props: TerminalProps) {
   const [expanded, setExpanded] = createSignal(false);
+
+  const expand = (v: boolean) => { setExpanded(v); props.onExpandChange?.(v); };
   const [lines, setLines] = createSignal<Line[]>([]);
   const [input, setInput] = createSignal('');
   const [cmdHistory, setCmdHistory] = createSignal<string[]>([]);
@@ -372,7 +381,9 @@ export default function Terminal() {
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Tab') {
+    if (e.key === 'Escape') {
+      collapse();
+    } else if (e.key === 'Tab') {
       e.preventDefault();
       const { completed, options } = getCompletions(input());
       setInput(completed);
@@ -435,14 +446,16 @@ export default function Terminal() {
       p.textContent = '$';
       const c = document.createElement('span');
       c.className = styles.cmd;
-      c.textContent = ' ' + cmd;
-      const o = document.createElement('div');
-      o.className = styles.out;
       line.appendChild(p);
       line.appendChild(c);
       dynArea.appendChild(line);
-      dynArea.appendChild(o);
-      typeText(o, outText, cb);
+      // type the command first, then the output
+      typeText(c, ' ' + cmd, () => {
+        const o = document.createElement('div');
+        o.className = styles.out;
+        dynArea.appendChild(o);
+        typeText(o, outText, cb);
+      });
     };
 
     const t1 = setTimeout(() => {
@@ -462,7 +475,7 @@ export default function Terminal() {
   };
 
   const collapse = () => {
-    setExpanded(false);
+    expand(false);
     setLines([]);
     setInput('');
     const t = setTimeout(startTypewriter, 50);
@@ -477,7 +490,7 @@ export default function Terminal() {
   const handleExpand = () => {
     if (expanded()) return;
     clearTimers();
-    setExpanded(true);
+    expand(true);
     setTimeout(() => inputEl?.focus(), 400);
   };
 
@@ -528,7 +541,7 @@ export default function Terminal() {
 
       {/* interactive shell */}
       <Show when={expanded()}>
-        <div ref={outputEl!} class={styles.output}>
+        <div ref={outputEl!} class={styles.output} onClick={() => inputEl?.focus()}>
           <p class={styles.welcome}>
             Type <span class={styles.hl}>help</span> for available commands.
             Try: <span class={styles.hl}>whoami</span>,{' '}

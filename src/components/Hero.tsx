@@ -1,7 +1,9 @@
+import { createSignal } from 'solid-js';
 import Terminal from './Terminal';
 import styles from './Hero.module.css';
 
 export default function Hero() {
+  const [termOpen, setTermOpen] = createSignal(false);
   return (
     <section id="hero" class={styles.hero}>
       <div class={styles.bgGrid} />
@@ -26,7 +28,7 @@ export default function Hero() {
         Also: distributed KV stores, custom languages, and hardware CPUs made of logic chips.
       </p>
 
-      <Terminal />
+      <Terminal onExpandChange={setTermOpen} />
 
       <div class={styles.cta}>
         <a href="#projects" class="btn btn-y">See My Work</a>
@@ -40,7 +42,7 @@ export default function Hero() {
         </a>
       </div>
 
-      <div class={styles.scrollHint} aria-hidden="true">SCROLL</div>
+      {!termOpen() && <div class={styles.scrollHint} aria-hidden="true">SCROLL</div>}
     </section>
   );
 }
