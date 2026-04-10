@@ -4,7 +4,6 @@
 @keyframes slide-up { to { transform: translateY(0); } }
 @keyframes fade-up  { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes fade-in  { to { opacity: 1; } }
-@keyframes blink    { 50% { opacity: 0; } }
 
 .hero {
   position: relative;
@@ -132,54 +131,6 @@
   font-weight: 400;
 }
 
-/* ── terminal ─────────────────────────────── */
-
-.terminal {
-  margin-bottom: 3rem;
-  opacity: 0;
-  animation: fade-up 0.5s 0.65s ease forwards;
-  position: relative;
-}
-
-.termBody {
-  font-size: 0.78rem;
-  background: var(--bg2);
-  border: 1px solid var(--border2);
-  border-left: 3px solid var(--y);
-  padding: 1rem 1.4rem;
-  display: inline-block;
-  min-width: 360px;
-  max-width: 480px;
-}
-
-.termLine {
-  display: block;
-}
-
-.prompt {
-  color: var(--y);
-  margin-right: 0.5rem;
-}
-
-.cmd {
-  color: var(--text);
-}
-
-.out {
-  color: var(--muted);
-  padding-left: 1.2rem;
-  min-height: 1.2em;
-}
-
-.blink {
-  display: inline-block;
-  width: 7px;
-  height: 1em;
-  background: var(--y);
-  vertical-align: text-bottom;
-  animation: blink 1s step-end infinite;
-}
-
 /* ── cta ──────────────────────────────────── */
 
 .cta {
@@ -226,7 +177,6 @@
 
 @media (max-width: 600px) {
   .name { font-size: clamp(3.5rem, 16vw, 10rem); }
-  .termBody { max-width: 100%; min-width: unset; }
   .cta { flex-direction: column; align-items: flex-start; }
   .cta a { max-width: 100%; }
 }

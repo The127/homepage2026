@@ -1,0 +1,223 @@
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ── outer shell ──────────────────────────── */
+
+.terminal {
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fade-up 0.5s 0.65s ease forwards;
+  position: relative;
+
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--y);
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 580px;
+  height: 108px;
+  overflow: hidden;
+  transition:
+    height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    max-width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-left-color 0.2s;
+  cursor: none;
+}
+
+.terminal:not(.expanded):hover {
+  border-left-color: var(--b);
+}
+
+.expanded {
+  max-width: 2000px;
+  height: 460px;
+  cursor: none;
+}
+
+/* ── header bar ───────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.8rem;
+  border-bottom: 1px solid var(--border2);
+  background: var(--bg3);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border2);
+}
+
+.dots .dot:nth-child(1) { background: #ff5f57; }
+.dots .dot:nth-child(2) { background: #febc2e; }
+.dots .dot:nth-child(3) { background: #28c840; }
+
+.title {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  flex: 1;
+  text-align: center;
+}
+
+.hint {
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--dim);
+  font-size: 0.6rem;
+  cursor: none;
+  padding: 0.1rem 0.3rem;
+  line-height: 1;
+  transition: color 0.15s;
+  font-family: var(--ff-m);
+  flex-shrink: 0;
+}
+
+.closeBtn:hover { color: var(--text); }
+
+/* ── compact typewriter body ──────────────── */
+
+.termBody {
+  font-size: 0.78rem;
+  padding: 0.7rem 1.2rem 0.8rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.termLine { display: block; }
+
+.prompt {
+  color: var(--y);
+  margin-right: 0.5rem;
+}
+
+.cmd { color: var(--text); }
+
+.out {
+  color: var(--muted);
+  padding-left: 1.2rem;
+  min-height: 1.2em;
+}
+
+.blink {
+  display: inline-block;
+  width: 7px;
+  height: 0.85em;
+  background: var(--y);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+/* ── expanded: output area ────────────────── */
+
+.output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.7rem 1.2rem 0.3rem;
+  font-size: 0.78rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border2) transparent;
+  min-height: 0;
+}
+
+.welcome {
+  color: var(--dim);
+  font-size: 0.7rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 0.5rem;
+}
+
+.hl { color: var(--y); }
+
+/* output lines */
+.cmdLine {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  color: var(--text);
+}
+
+.outLine {
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+  padding-left: 1.1rem;
+}
+
+.infoLine {
+  color: var(--b);
+  margin-bottom: 0.4rem;
+  padding-left: 1.1rem;
+}
+
+.errLine {
+  color: var(--r);
+  margin-bottom: 0.4rem;
+  padding-left: 1.1rem;
+}
+
+.pre {
+  font-family: var(--ff-m);
+  font-size: inherit;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ── input line ───────────────────────────── */
+
+.inputLine {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.2rem;
+  border-top: 1px solid var(--border2);
+  flex-shrink: 0;
+  background: var(--bg2);
+}
+
+.input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--ff-m);
+  font-size: 0.78rem;
+  caret-color: var(--y);
+  cursor: none;
+}
+
+/* ── responsive ───────────────────────────── */
+
+@media (max-width: 600px) {
+  .expanded { height: 340px; }
+}

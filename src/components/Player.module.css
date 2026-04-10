@@ -403,3 +403,9 @@
 
 .volSlider::-webkit-slider-runnable-track { background: transparent; }
 .volSlider::-moz-range-track { background: transparent; }
+
+/* ── responsive ───────────────────────────── */
+
+@media (max-width: 600px) {
+  .player { display: none; }
+}
