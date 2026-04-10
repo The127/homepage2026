@@ -1,4 +1,5 @@
 import { onMount, onCleanup } from 'solid-js';
+import { AudioProvider } from './context/AudioContext';
 import Cursor from './components/Cursor';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
@@ -9,6 +10,7 @@ import Projects from './components/Projects';
 import Libraries from './components/Libraries';
 import Books from './components/Books';
 import Create from './components/Create';
+import NowPlaying from './components/NowPlaying';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -32,7 +34,7 @@ export default function App() {
   });
 
   return (
-    <>
+    <AudioProvider>
       <Cursor />
       <Nav />
       <Hero />
@@ -44,6 +46,7 @@ export default function App() {
       <Books />
       <Create />
       <Footer />
-    </>
+      <NowPlaying />
+    </AudioProvider>
   );
 }

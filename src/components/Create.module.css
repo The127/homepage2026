@@ -4,7 +4,7 @@
 
 .section {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr 1fr;
   min-height: 65vh;
 }
 
@@ -26,7 +26,7 @@
 
 .art {
   background: var(--bg2);
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .bgText {
@@ -37,9 +37,17 @@
   opacity: 0.04;
   pointer-events: none;
   user-select: none;
-  bottom: -1rem;
-  right: -1rem;
   color: var(--text);
+}
+
+.music .bgText {
+  top: -2rem;
+  right: -1rem;
+}
+
+.art .bgText {
+  bottom: -2rem;
+  right: -1rem;
 }
 
 .eyebrow {
@@ -70,8 +78,13 @@
   position: relative;
 }
 
-.desc strong {
+.music .desc strong {
   color: var(--b);
+  font-weight: 400;
+}
+
+.art .desc strong {
+  color: var(--r);
   font-weight: 400;
 }
 
@@ -125,7 +138,6 @@
 
 /* ── vinyl (behind sleeve, slides up) ────── */
 
-/* outer wrapper handles the translate only */
 .vinylSlide {
   position: absolute;
   top: 15px;
@@ -138,7 +150,6 @@
   transform: translateY(-70%) translateX(6%) rotate(12deg);
 }
 
-/* inner element handles spin only */
 .vinyl {
   width: 130px;
   height: 130px;
@@ -156,7 +167,6 @@
   animation-play-state: running;
 }
 
-/* groove rings — dark bands over the colour give the schlieren depth */
 .grooves {
   position: absolute;
   inset: 0;
@@ -171,7 +181,6 @@
     );
 }
 
-/* sheen overlay — a bright arc that stays fixed while the vinyl spins beneath */
 .grooves::after {
   content: '';
   position: absolute;
@@ -189,7 +198,6 @@
   animation-play-state: inherit;
 }
 
-/* album art label (center circle) */
 .label {
   position: absolute;
   width: 40%;
@@ -210,7 +218,6 @@
   display: block;
 }
 
-/* center spindle hole */
 .hole {
   position: absolute;
   width: 8px;
@@ -222,6 +229,10 @@
   transform: translate(-50%, -50%);
   z-index: 2;
   box-shadow: 0 0 0 1px #333;
+}
+
+.spinning {
+  animation-play-state: running !important;
 }
 
 /* ── info below sleeve ────────────────────── */
@@ -263,6 +274,88 @@
   border-color: var(--b);
 }
 
+/* ── sleeve play overlay ──────────────────── */
+
+.sleevePlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.recordWrap:hover .sleevePlay,
+.active .sleevePlay {
+  opacity: 1;
+}
+
+.active .sleevePlay {
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  font-family: var(--ff-m);
+}
+
+/* ── art text block (pushed to bottom) ───── */
+
+.artText {
+  margin-top: auto;
+}
+
+/* ── warhammer gallery ────────────────────── */
+
+.miniGallery {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  align-items: flex-end;
+  padding: 0 0.5rem;
+}
+
+.miniWrap {
+  position: relative;
+  width: calc(50% - 0.75rem);
+  aspect-ratio: 4 / 3;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* dark shadow silhouette */
+.miniWrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--img) center bottom / contain no-repeat;
+  filter: blur(8px) brightness(0);
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateY(12px) scaleX(0.85);
+}
+
+.miniWrap:first-child { transform: rotate(-2deg); }
+.miniWrap:last-child  { transform: rotate(1.5deg) translateY(-10px); }
+
+.miniWrap:first-child:hover { transform: rotate(-2deg) translateY(-8px) scale(1.04); }
+.miniWrap:last-child:hover  { transform: rotate(1.5deg) translateY(-18px) scale(1.04); }
+
+.mini {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  position: relative;
+  z-index: 1;
+  filter:
+    drop-shadow(0 0 6px rgba(255,255,255,0.55))
+    drop-shadow(0 0 2px rgba(255,255,255,0.8))
+    drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+}
+
 /* ── bottom accent bars ───────────────────── */
 
 .barMusic,
@@ -282,7 +375,6 @@
 @media (max-width: 900px) {
   .section { grid-template-columns: 1fr; }
   .music { border-right: none; border-bottom: 1px solid var(--border); }
-  .art { justify-content: flex-start; }
 }
 
 @media (max-width: 600px) {

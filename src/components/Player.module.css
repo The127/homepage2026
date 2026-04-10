@@ -1,0 +1,405 @@
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes bar {
+  to { height: 20%; }
+}
+
+/* ── player wrapper ───────────────────────── */
+
+.player {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--y);
+  padding: 1.5rem;
+  animation: slide-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── left column ──────────────────────────── */
+
+.playerLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.playerVinyl {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--vc, #1a1a1a);
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.spinning {
+  animation: spin 4s linear infinite;
+}
+
+/* groove rings */
+.grooves {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      rgba(0,0,0,0.55) 0px,
+      rgba(0,0,0,0.55) 2px,
+      transparent       2px,
+      transparent       5px
+    );
+}
+
+.grooves::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 200deg,
+    transparent 0deg,
+    rgba(255,255,255,0.07) 30deg,
+    rgba(255,255,255,0.18) 60deg,
+    rgba(255,255,255,0.07) 90deg,
+    transparent 120deg
+  );
+  animation: spin 5s linear infinite reverse;
+  animation-play-state: inherit;
+}
+
+.label {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.labelImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hole {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 0 1px #333;
+}
+
+.playerAlbumName {
+  font-family: var(--ff-d);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  text-align: center;
+}
+
+.playerArtist {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── right column ─────────────────────────── */
+
+.playerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 0;
+}
+
+/* ── track list ───────────────────────────── */
+
+.trackList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.trackItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.4rem 0.6rem;
+  cursor: none;
+  transition: background 0.15s;
+  border-radius: 1px;
+}
+
+.trackItem:hover {
+  background: var(--bg2);
+}
+
+.trackActive {
+  background: var(--bg2) !important;
+}
+
+.trackActive .trackName {
+  color: var(--y);
+}
+
+.trackNum {
+  font-size: 0.6rem;
+  color: var(--dim);
+  min-width: 1.4rem;
+  letter-spacing: 0.05em;
+}
+
+.trackActive .trackNum {
+  color: var(--y);
+}
+
+.trackName {
+  font-size: 0.75rem;
+  color: var(--muted);
+  flex: 1;
+  transition: color 0.15s;
+}
+
+/* animated equaliser bars */
+.trackBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.trackBars span {
+  display: block;
+  width: 3px;
+  background: var(--y);
+  border-radius: 1px;
+  animation: bar 0.8s ease infinite alternate;
+}
+
+.trackBars span:nth-child(1) { height: 60%; animation-delay: 0s; }
+.trackBars span:nth-child(2) { height: 100%; animation-delay: 0.2s; }
+.trackBars span:nth-child(3) { height: 40%; animation-delay: 0.4s; }
+
+/* ── transport controls ───────────────────── */
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* tall invisible hit area wrapping a thin visual track */
+.seekHit {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  cursor: none;
+}
+
+.seekTrack {
+  width: 100%;
+  height: 3px;
+  background: var(--border2);
+  position: relative;
+}
+
+.seekFill {
+  height: 100%;
+  background: var(--y);
+  pointer-events: none;
+}
+
+.controlRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.7rem;
+  cursor: none;
+  padding: 0.3rem 0.5rem;
+  transition: color 0.15s;
+  font-family: var(--ff-m);
+}
+
+.btn:hover {
+  color: var(--text);
+}
+
+.btnPlay {
+  background: var(--y);
+  color: #000;
+  padding: 0;
+  width: 2.4rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btnPlay:hover {
+  background: var(--text);
+  transform: scale(1.05);
+}
+
+.iconPlay {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 9px;
+  border-color: transparent transparent transparent #000;
+  margin-left: 2px; /* optical nudge for triangle */
+}
+
+.iconPause {
+  display: flex;
+  gap: 3px;
+}
+
+.iconPause::before,
+.iconPause::after {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 10px;
+  background: #000;
+}
+
+.time {
+  font-size: 0.6rem;
+  color: var(--dim);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  min-width: 5rem;
+}
+
+/* ── volume ───────────────────────────────── */
+
+.volumeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  width: 110px;
+}
+
+/* CSS 3-bar ascending volume icon */
+.volIcon {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.volIcon span {
+  display: block;
+  width: 2px;
+  background: var(--dim);
+  border-radius: 1px;
+}
+
+.volIcon span:nth-child(1) { height: 35%; }
+.volIcon span:nth-child(2) { height: 65%; }
+.volIcon span:nth-child(3) { height: 100%; }
+
+/* wrapper-based filled track */
+.volTrack {
+  flex: 1;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: none;
+}
+
+.volTrack::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 3px;
+  background: var(--border2);
+}
+
+.volFill {
+  position: absolute;
+  left: 0;
+  height: 3px;
+  background: var(--y);
+  pointer-events: none;
+  transition: width 0.05s linear;
+}
+
+.volSlider {
+  position: absolute;
+  left: 0; right: 0;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  background: transparent;
+  cursor: none;
+  outline: none;
+  margin: 0;
+}
+
+.volSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--y);
+  cursor: none;
+}
+
+.volSlider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--y);
+  border: none;
+  cursor: none;
+}
+
+.volSlider::-webkit-slider-runnable-track { background: transparent; }
+.volSlider::-moz-range-track { background: transparent; }
