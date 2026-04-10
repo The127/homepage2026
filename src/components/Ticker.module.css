@@ -8,6 +8,12 @@
   background: var(--bg2);
 }
 
+@media (max-width: 600px) {
+  .wrap {
+    margin-top: 3rem;
+  }
+}
+
 .track {
   display: flex;
   width: max-content;
