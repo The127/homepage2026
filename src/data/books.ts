@@ -43,7 +43,7 @@ export const books: Book[] = [
   {
     title: 'Domain-Driven Design',
     author: 'Eric Evans',
-    category: 'Architecture',
+    category: 'Arch',
     bg: '#1a0c14',
     borderColor: '#902848',
     textColor: '#d45888',

@@ -11,7 +11,7 @@ export default function Books() {
         {books.map((b, i) => (
           <div
             class={`${styles.book} rv`}
-            style={{ 'transition-delay': `${i * 0.07}s` }}
+            style={{ '--rd': `${i * 0.07}s` }}
           >
             <div
               class={styles.spine}
@@ -27,7 +27,7 @@ export default function Books() {
             </div>
             <div class={styles.info}>
               <div class={styles.author}>{b.author}</div>
-              <div class={styles.category} style={{ color: b.borderColor }}>
+              <div class={styles.category} style={{ color: b.textColor }}>
                 {b.category}
               </div>
             </div>

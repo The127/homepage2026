@@ -16,7 +16,9 @@ export default function App() {
       entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            (e.target as HTMLElement).classList.add('in');
+            const el = e.target as HTMLElement;
+            el.classList.add('in');
+            el.addEventListener('transitionend', () => el.style.removeProperty('--rd'), { once: true });
             obs.unobserve(e.target);
           }
         });
