@@ -27,17 +27,12 @@
   overflow: hidden;
 }
 
-.portraitInner::before {
-  content: 'KK';
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--ff-d);
-  font-size: 9rem;
-  color: var(--border2);
-  letter-spacing: -0.1em;
+.portraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
 }
 
 .portraitInner::after {
@@ -58,6 +53,24 @@
   height: 100%;
   border: 1.5px solid var(--y);
   z-index: -1;
+}
+
+.portraitCredit {
+  margin-top: 0.5rem;
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.portraitCredit a {
+  color: var(--dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border2);
+}
+
+.portraitCredit a:hover {
+  color: var(--muted);
 }
 
 /* ── copy ─────────────────────────────────── */

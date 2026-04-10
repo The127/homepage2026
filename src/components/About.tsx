@@ -8,8 +8,13 @@ export default function About() {
 
       <div class={styles.grid}>
         <div class={`${styles.portrait} rv`}>
-          <div class={styles.portraitInner} />
+          <div class={styles.portraitInner}>
+            <img src="/raccoon.webp" alt="A peeking raccoon" class={styles.portraitImg} />
+          </div>
           <div class={styles.portraitAccent} />
+          <p class={styles.portraitCredit}>
+            Photo: <a href="https://commons.wikimedia.org/wiki/File:Peeking_Raccoon_(6371172113).jpg" target="_blank" rel="noopener">Neil McIntosh</a>, CC BY 2.0
+          </p>
         </div>
 
         <div class={`${styles.copy} rv`} style={{ 'transition-delay': '0.15s' }}>
@@ -35,6 +40,12 @@ export default function About() {
             Juniper switches. My own AI agent. My own DNS. My own everything.
             I also built an <strong>8-bit CPU from 74LS logic chips</strong> from
             scratch, because understanding things at the base level matters.
+          </p>
+
+          <p>
+            My favourite animal is the <strong>raccoon</strong>. Highly adaptable,
+            nocturnal, and perpetually getting into things they probably shouldn't.
+            Relatable.
           </p>
 
           <div class={styles.meta}>
