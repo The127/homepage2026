@@ -1,3 +1,5 @@
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
 .wrap {
   overflow: hidden;
   border-top: 1px solid var(--border);
