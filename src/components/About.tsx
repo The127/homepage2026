@@ -36,6 +36,10 @@ export default function About() {
           </p>
 
           <p>
+            I also contribute to projects I use: <strong>gorqlite</strong> (the official Go client for rqlite), <strong>Incus</strong> and <strong>incus-os</strong>, and the <strong>Terraform provider for Incus</strong> published to the Terraform Registry.
+          </p>
+
+          <p>
             At home I run <strong>2 racks</strong>: Raspberry Pis, old servers,
             Juniper switches. My own AI agent. My own DNS. My own everything.
             I also built an <strong>8-bit CPU from 74LS logic chips</strong> from

@@ -15,7 +15,7 @@ export default function Hero() {
       <div class={`${styles.sq} ${styles.sq4}`} />
       <div class={styles.bigNum} aria-hidden="true">KK</div>
 
-      <div class={styles.eyebrow}>// cloud engineer · builder · karlsruhe</div>
+      <div class={styles.eyebrow}>// cloud engineer · builder · musician · karlsruhe</div>
 
       <h1 class={styles.name}>
         <span class={styles.line1}><em>KAROLIN</em></span>
@@ -25,7 +25,7 @@ export default function Hero() {
       <p class={styles.tagline}>
         I build the <strong>infrastructure that other builders rely on</strong>.<br />
         Auth systems. Error trackers. Webhook engines. Container registries.<br />
-        Also: distributed KV stores, custom languages, and hardware CPUs made of logic chips.
+        Also: a browser DAW with a Rust/WASM engine, distributed KV stores, custom languages, and hardware CPUs made of logic chips.
       </p>
 
       <Terminal onExpandChange={setTermOpen} />
