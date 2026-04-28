@@ -3,7 +3,6 @@ import { AudioProvider } from './context/AudioContext';
 import Cursor from './components/Cursor';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
-import Ticker from './components/Ticker';
 import About from './components/About';
 import Stack from './components/Stack';
 import Projects from './components/Projects';
@@ -38,7 +37,6 @@ export default function App() {
       <Cursor />
       <Nav />
       <Hero />
-      <Ticker />
       <About />
       <Stack />
       <Projects />

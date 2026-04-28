@@ -6,8 +6,7 @@ export default function Hero() {
   const [termOpen, setTermOpen] = createSignal(false);
   return (
     <section id="hero" class={styles.hero}>
-      <div class={styles.bgGrid} />
-      <div class={styles.slash} />
+<div class={styles.slash} />
       <div class={`${styles.slash} ${styles.slash2}`} />
       <div class={`${styles.sq} ${styles.sq1}`} />
       <div class={`${styles.sq} ${styles.sq2}`} />

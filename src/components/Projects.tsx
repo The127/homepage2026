@@ -22,7 +22,7 @@ export default function Projects() {
             </div>
             {p.repo
               ? <a href={p.repo} class={styles.link} target="_blank" rel="noopener">GitHub →</a>
-              : <span class={styles.soon}>// coming soon</span>
+              : <span class={styles.soon}>// {p.repoNote ?? 'coming soon'}</span>
             }
           </div>
         ))}

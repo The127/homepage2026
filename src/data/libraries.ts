@@ -56,11 +56,4 @@ export const libraries: Library[] = [
     accent: 'var(--y)',
     link: 'https://github.com/The127/signr',
   },
-  {
-    lang: 'Rust · Go',
-    name: 'raccoonlang',
-    desc: 'A custom programming language, because sometimes the best way to understand a compiler is to write one. Also the raccoon branding is non-negotiable.',
-    accent: 'var(--b)',
-    link: 'https://github.com/The127/raccoonlangRS',
-  },
 ];

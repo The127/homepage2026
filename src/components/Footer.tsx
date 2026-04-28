@@ -27,10 +27,6 @@ export default function Footer() {
         <a href="https://solidjs.com" target="_blank" rel="noopener">SolidJS</a>
         {' + '}
         <a href="https://vitejs.dev" target="_blank" rel="noopener">Vite</a>
-        {' + '}
-        <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a>
-        {' + '}
-        <a href="https://cloudflare.com" target="_blank" rel="noopener">Cloudflare</a>
       </div>
     </footer>
   );

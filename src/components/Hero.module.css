@@ -15,20 +15,6 @@
   overflow: hidden;
 }
 
-/* ── background ───────────────────────────── */
-
-.bgGrid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.5;
-  mask-image: radial-gradient(ellipse 80% 90% at 50% 50%, black, transparent);
-  pointer-events: none;
-}
-
 .slash {
   position: absolute;
   top: -20%;

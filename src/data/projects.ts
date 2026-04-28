@@ -6,6 +6,7 @@ export interface Project {
   langs: string[];
   accent: string;
   repo: string | null;
+  repoNote?: string;
 }
 
 export const projects: Project[] = [
@@ -80,5 +81,6 @@ export const projects: Project[] = [
     langs: ['Rust', 'Vue 3', 'OIDC'],
     accent: 'var(--g)',
     repo: null,
+    repoNote: 'self-hosting it for myself',
   },
 ];
