@@ -20,10 +20,11 @@ export default function Projects() {
             <div class={styles.langs}>
               {p.langs.map(l => <span class={styles.lang}>{l}</span>)}
             </div>
-            {p.repo
-              ? <a href={p.repo} class={styles.link} target="_blank" rel="noopener">GitHub →</a>
-              : <span class={styles.soon}>// {p.repoNote ?? 'coming soon'}</span>
-            }
+            <div class={styles.links}>
+              {p.repo && <a href={p.repo} class={styles.link} target="_blank" rel="noopener">GitHub →</a>}
+              {p.link && <a href={p.link} class={styles.link} target="_blank" rel="noopener">Open →</a>}
+              {!p.repo && !p.link && <span class={styles.soon}>// {p.repoNote ?? 'coming soon'}</span>}
+            </div>
           </div>
         ))}
       </div>

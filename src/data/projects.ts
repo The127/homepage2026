@@ -7,6 +7,7 @@ export interface Project {
   accent: string;
   repo: string | null;
   repoNote?: string;
+  link?: string;
 }
 
 export const projects: Project[] = [
@@ -17,7 +18,8 @@ export const projects: Project[] = [
     desc: 'Browser-based DAW with a Rust/WASM audio engine. Modular synthesis, full signal routing graph, multiple synth engines, complete effects suite, and viral video export. No installation. Just open and make music.',
     langs: ['Rust', 'WASM', 'SolidJS', 'WebAudio'],
     accent: 'var(--r)',
-    repo: 'https://github.com/The127/raccoon-daw',
+    repo: null,
+    link: 'https://daw.karo.gay',
   },
   {
     num: '02',
