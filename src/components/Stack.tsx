@@ -17,6 +17,10 @@ const meta = [
     label: 'AI',
     value: 'Claude Code · Agent teams · Ollama',
   },
+  {
+    label: 'Learning',
+    value: 'Gleam',
+  },
 ];
 
 export default function Stack() {

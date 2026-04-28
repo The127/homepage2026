@@ -41,9 +41,8 @@ export default function About() {
 
           <p>
             At home I run <strong>2 racks</strong>: Raspberry Pis, old servers,
-            Juniper switches. My own AI agent. My own DNS. My own everything.
-            I also built an <strong>8-bit CPU from 74LS logic chips</strong> from
-            scratch, because understanding things at the base level matters.
+            My own AI agent. My own DNS. My own everything.
+            I also built an <strong>8-bit CPU from 74LS logic chips</strong>.
           </p>
 
           <p>

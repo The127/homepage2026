@@ -17,7 +17,11 @@ export default function Footer() {
         🍪 this site uses <strong>0 cookies</strong>. for cookies, check your kitchen.
       </div>
 
-      <div class={styles.copy}>Karolin Kostial · 2026</div>
+      <div class={styles.copy}>
+        Karolin Kostial · 2026
+        {' · '}
+        <a href="/impressum.html">Impressum</a>
+      </div>
       <div class={styles.powered}>
         powered by{' '}
         <a href="https://solidjs.com" target="_blank" rel="noopener">SolidJS</a>

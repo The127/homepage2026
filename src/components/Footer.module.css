@@ -70,6 +70,17 @@
   letter-spacing: 0.1em;
 }
 
+.copy a {
+  color: var(--dim);
+  text-decoration: none;
+  cursor: none;
+  transition: color 0.2s;
+}
+
+.copy a:hover {
+  color: var(--text);
+}
+
 .powered {
   font-size: 0.58rem;
   color: var(--dim);

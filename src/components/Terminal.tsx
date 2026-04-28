@@ -69,16 +69,16 @@ Location: Karlsruhe, Germany
 I build infrastructure. Auth servers, error trackers, webhook engines,
 container registries. Production primitives, not demos.
 
-At home: 2 racks, Raspberry Pis, Juniper switches, my own AI agent,
+At home: 2 racks, Raspberry Pis, my own AI agent,
 my own DNS. My own everything.
 
-Also built an 8-bit CPU from 74LS logic chips, because understanding
-things at the base level matters.`,
+Also built an 8-bit CPU from 74LS logic chips.`,
 
   'stack.txt': `Languages:  Go, Rust, C#, TypeScript
+Learning:   Gleam
 Cloud:      Kubernetes (as a service, @ Anexia), Docker
 Systems:    Linux, custom protocols, network engineering
-Hardware:   74LS logic, Raspberry Pi, Juniper
+Hardware:   74LS logic, Raspberry Pi
 Interests:  Compilers, Auth/OIDC, distributed systems`,
 
   'projects.txt': `54 public repositories on github.com/The127
@@ -180,7 +180,7 @@ drwxr-xr-x  karolin  karolin  projects/
       }
 
       if (path === 'infra/' || path === 'infra') {
-        return { lines: [out('2x-racks/  juniper-switches/  raspberry-pis/  ai-agent/  dns-server/  k8s-homelab/')] };
+        return { lines: [out('2x-racks/  raspberry-pis/  ai-agent/  dns-server/  k8s-homelab/')] };
       }
 
       if (path === 'projects/' || path === 'projects') {
@@ -209,10 +209,11 @@ drwxr-xr-x  karolin  karolin  projects/
       return { lines: [info(
 `    /\\___/\\    karolin@homelab
    ( o   o )   ──────────────────
-    =  ▼  =    OS:     Linux (homelab)
-   /|       |\\  Host:   2× racks + Juniper
+    =  ▼  =    OS:     Fedora Silverblue
+   /|       |\\  Host:   2× racks
   (_|       |_) Kernel: 6.12.0
                Shell:  zsh
+               Pkgs:   nix
                CPU:    built one (74LS logic chips)
                RAM:    enough
                Uptime: years`
@@ -459,7 +460,7 @@ export default function Terminal(props: TerminalProps) {
     const t1 = setTimeout(() => {
       typeText(termOut, 'karolin kostial, cloud engineer, builder', () => {
         const t2 = setTimeout(() => {
-          addCommand('ls infra/', '2x racks  juniper  raspberry-pis  ai-agent  ...', () => {
+          addCommand('ls infra/', '2x racks  raspberry-pis  ai-agent  ...', () => {
             const t3 = setTimeout(() => {
               addCommand('ls projects/ | wc -l', '54');
             }, 300);
