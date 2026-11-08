@@ -495,6 +495,11 @@ fn calc(winkel, b) {
   },
 ];
 
+/** Games have their own section on the home page and the projects page. */
+export function isGame(project: Project): boolean {
+  return project.kind === 'Game';
+}
+
 export function findProject(slug: string): Project | undefined {
   return projects.find(p => p.slug === slug);
 }

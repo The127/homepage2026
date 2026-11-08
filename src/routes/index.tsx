@@ -7,7 +7,7 @@ import PageMeta from '~/components/PageMeta';
 import ProjectCard from '~/components/ProjectCard';
 import Section from '~/components/Section';
 import { albums } from '~/data/albums';
-import { projects } from '~/data/projects';
+import { isGame, projects } from '~/data/projects';
 
 const NOW_UPDATED = 'November 2026';
 
@@ -67,6 +67,12 @@ export default function Home() {
         </div>
         <div class="mt-6">
           <Button href="/projects" variant="outlined">All projects</Button>
+        </div>
+      </Section>
+
+      <Section title="Games">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <For each={projects.filter(isGame)}>{p => <ProjectCard project={p} links />}</For>
         </div>
       </Section>
 

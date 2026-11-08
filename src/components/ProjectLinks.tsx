@@ -22,7 +22,7 @@ export default function ProjectLinks(props: { project: Project; class?: string }
         <Show when={props.project.website}>
           {site => (
             <li>
-              <Link href={site().href} class="inline-flex min-h-6 items-center">{site().label}</Link>
+              <Link href={site().href} class="inline-flex min-h-6 items-center gap-1.5">{site().label}</Link>
             </li>
           )}
         </Show>

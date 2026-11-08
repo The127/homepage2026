@@ -7,9 +7,7 @@ import ProjectCard from '~/components/ProjectCard';
 import Section from '~/components/Section';
 import { contributions } from '~/data/contributions';
 import { libraries, type Library } from '~/data/libraries';
-import { projects, type Project } from '~/data/projects';
-
-const isGame = (p: Project) => p.kind === 'Game';
+import { isGame, projects } from '~/data/projects';
 
 function LibraryList(props: { language: Library['language'] }) {
   return (

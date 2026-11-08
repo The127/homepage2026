@@ -35,9 +35,10 @@ export default function Link(props: {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" class={props.class}>
         {props.children}
+        {/* In running text the icon needs its own space. In a flex link, the gap does that. */}
         <ExternalLinkIcon
           aria-hidden="true"
-          class="ml-1 inline-block size-[0.875em] shrink-0 align-[-0.0625em]"
+          class="ml-1 inline-block size-[0.875em] shrink-0 align-[-0.0625em] in-[.inline-flex]:ml-0"
         />
         <span class="sr-only"> (opens in a new tab)</span>
       </a>
