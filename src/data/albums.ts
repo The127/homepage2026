@@ -20,7 +20,7 @@ export const albums: Album[] = [
     kind: 'Album',
     year: 2022,
     cover: '/covers/nightfall.jpg',
-    coverAlt: 'Cover of Nightfall: an ink drawing of a screaming creature with tentacles, in purple and pink.',
+    coverAlt: 'Cover of Nightfall: a digitally edited pencil drawing of a screaming creature with tentacles, in purple and pink.',
     bandcamp: 'https://liaaura.bandcamp.com/album/nightfall',
     tracks: [
       { title: 'Blindingly Dark', src: '/audio/nightfall-blindingly-dark.mp3' },
@@ -36,7 +36,7 @@ export const albums: Album[] = [
     kind: 'EP',
     year: 2022,
     cover: '/covers/opportunity.jpg',
-    coverAlt: 'Cover of Opportunity: an ink drawing of an insect-like creature and a trumpet flower, in yellow and green.',
+    coverAlt: 'Cover of Opportunity: a digitally edited pencil drawing of an insect-like creature and a trumpet flower, in yellow and green.',
     bandcamp: 'https://liaaura.bandcamp.com/album/opportunity',
     spotify: 'https://open.spotify.com/album/6yOsdBm9pb9S8wrVnV3q0N',
     tracks: [
@@ -53,7 +53,7 @@ export const albums: Album[] = [
     kind: 'Album',
     year: 2022,
     cover: '/covers/forces.jpg',
-    coverAlt: 'Cover of Forces: an ink drawing of tangled creatures with skulls, in dark purple and green.',
+    coverAlt: 'Cover of Forces: a digitally edited pencil drawing of tangled creatures with skulls, in dark purple and green.',
     bandcamp: 'https://liaaura.bandcamp.com/album/forces',
     spotify: 'https://open.spotify.com/album/1Hyj7yQUmlx3FeBqeCOhGi',
     tracks: [
@@ -70,7 +70,7 @@ export const albums: Album[] = [
     kind: 'Album',
     year: 2022,
     cover: '/covers/journey.jpg',
-    coverAlt: 'Cover of Journey: an ink drawing of a twisted tree, in blue and purple.',
+    coverAlt: 'Cover of Journey: a digitally edited pencil drawing of a twisted tree, in blue and purple.',
     bandcamp: 'https://liaaura.bandcamp.com/album/journey',
     spotify: 'https://open.spotify.com/album/1eGmsKvnZzrKwZHoUwRmEr',
     tracks: [
