@@ -303,20 +303,6 @@ mako kv get my-app log-level`,
     },
   },
   {
-    slug: 'hsk-trainer',
-    name: 'hsk-trainer',
-    kind: 'Language learning',
-    summary: 'A vocabulary trainer for the Chinese HSK exams, with spaced repetition. I use it for my own Chinese.',
-    languages: ['Rust', 'Vue'],
-    howItWorks: () => (
-      <p>
-        It has the vocabulary for HSK 2.0 and 3.0 and asks you each word again just before you'd
-        forget it. It has interactive games too.
-      </p>
-    ),
-    status: () => <p>I host it for myself. The code isn't public.</p>,
-  },
-  {
     slug: 'frogly',
     name: 'frogly',
     kind: 'Task planner',
