@@ -55,8 +55,9 @@ export const projects: Project[] = [
     howItWorks: () => (
       <p>
         Tidegate decides who may reach your production systems, for how long and with which
-        permissions. A server called the authority keeps the rules and the decisions, and people
-        use a command-line tool on Linux, macOS or Windows.
+        permissions. A server called the authority keeps the rules and the decisions. With a
+        command-line tool on Linux, macOS or Windows, people reach servers, databases and other
+        systems securely, with only the permissions they need and only while they need them.
       </p>
     ),
     status: () => (
@@ -105,8 +106,8 @@ export const projects: Project[] = [
     ),
     status: () => (
       <p>
-        Released and in active development. The latest release is v2.3.0, from October 2026. It
-        runs on macOS with Apple silicon, on Linux and on Windows 11.
+        Released and in active development. It runs on macOS with Apple silicon, on Linux and on
+        Windows 11.
       </p>
     ),
     tryIt: {
@@ -150,8 +151,7 @@ aibox run`,
     status: () => (
       <p>
         In beta. It passes the basic OpenID Connect conformance tests for the features it
-        supports, but it isn't ready for production yet. The latest release is v0.6.4, from
-        September 2026.
+        supports, but it isn't ready for production yet.
       </p>
     ),
   },
@@ -201,8 +201,7 @@ aibox run`,
     ),
     status: () => (
       <p>
-        Version 1.0.0 came out in October 2026. miso runs on Linux on amd64 and arm64 and needs
-        access to <code>/dev/kvm</code>.
+        Released. It runs on Linux on amd64 and arm64 and needs access to <code>/dev/kvm</code>.
       </p>
     ),
     tryIt: {
@@ -242,7 +241,7 @@ CHECK command -v htop`,
       </p>
     ),
     status: () => (
-      <p>Before version 1.0. The latest release is v0.0.15, from April 2026.</p>
+      <p>Before version 1.0.</p>
     ),
     tryIt: {
       intro: () => <p>Build it from source and run it:</p>,
@@ -261,16 +260,15 @@ go build -o dockyard ./cmd/dockyard
     repo: 'https://github.com/The127/mako',
     problem: () => (
       <p>
-        A small cluster needs a shared place for its configuration. etcd or Consul can do that,
-        but they're a lot to run for a few keys.
+        I wanted one simple, secure place for configuration, for any app or service, without
+        the complexity of etcd or Consul.
       </p>
     ),
     howItWorks: () => (
       <>
         <p>
-          Mako stores configuration as keys in namespaces. Underneath it uses{' '}
-          <a href="https://github.com/rqlite/rqlite">rqlite</a>, so the data is replicated across
-          nodes with Raft.
+          Mako stores configuration as keys in namespaces. Underneath it keeps everything in{' '}
+          <a href="https://github.com/rqlite/rqlite">rqlite</a>.
         </p>
         <p>
           Clients log in with short-lived OIDC tokens, so there are no shared passwords to leak,
@@ -281,8 +279,7 @@ go build -o dockyard ./cmd/dockyard
     ),
     status: () => (
       <p>
-        Feature complete and ready for production. It gets bug fixes and security updates. The
-        latest release is v0.1.2, from March 2026.
+        Feature complete and ready for production. It gets bug fixes and security updates.
       </p>
     ),
     tryIt: {
