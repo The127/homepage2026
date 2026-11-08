@@ -6,7 +6,9 @@ import ProjectCard from '~/components/ProjectCard';
 import Section from '~/components/Section';
 import { contributions } from '~/data/contributions';
 import { libraries, type Library } from '~/data/libraries';
-import { projects } from '~/data/projects';
+import { projects, type Project } from '~/data/projects';
+
+const isGame = (p: Project) => p.kind === 'Game';
 
 function LibraryList(props: { language: Library['language'] }) {
   return (
@@ -39,7 +41,13 @@ export default function Projects() {
 
       <Section title="Projects">
         <div class="grid gap-4 lg:grid-cols-2">
-          <For each={projects}>{p => <ProjectCard project={p} links />}</For>
+          <For each={projects.filter(p => !isGame(p))}>{p => <ProjectCard project={p} links />}</For>
+        </div>
+      </Section>
+
+      <Section title="Games">
+        <div class="grid gap-4 lg:grid-cols-2">
+          <For each={projects.filter(isGame)}>{p => <ProjectCard project={p} links />}</For>
         </div>
       </Section>
 

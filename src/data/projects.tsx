@@ -217,6 +217,86 @@ aibox run`,
     ),
   },
   {
+    slug: 'hotdogstand',
+    name: 'hotdogstand',
+    kind: 'Game',
+    summary: 'A 3D game where you run a hot dog stand at night, until something about your customers starts to feel off.',
+    languages: ['Godot', 'GDScript'],
+    website: { label: 'Play it', href: 'https://hotdogstand.vercel.app' },
+    problem: () => (
+      <p>Ever wanted to serve hot dogs at night, from 10 pm to 2 am? Me neither, but I made a game about it.</p>
+    ),
+    howItWorks: () => (
+      <>
+        <p>
+          Each night runs from 22:00 to 02:00 on the stall's clock, which takes eight minutes.
+          Customers line up at the window and mumble their order in a speech bubble, each with a
+          voice of their own. You build every hot dog by hand: sausages from the fridge onto the
+          roller grill, a bun on a plate, then sauce and onions right where you squeeze and
+          sprinkle them.
+        </p>
+        <p>
+          Sausages brown after 15 seconds and burn after a minute and a half. Leave them burning
+          and the stall catches fire. Buns, toppings and sauce run out, so you refill them from
+          the stock room. At closing you scrub the grill, and Walter, who owns the stand, takes
+          his cut.
+        </p>
+        <p>
+          Then the regulars start coming back every night for the same order, and their skin
+          turns grey. How the week ends depends on how much you go looking.
+        </p>
+      </>
+    ),
+    status: () => (
+      <p>
+        Finished. It runs in the browser at{' '}
+        <a href="https://hotdogstand.vercel.app">hotdogstand.vercel.app</a>. The code isn't
+        public.
+      </p>
+    ),
+  },
+  {
+    slug: 'fishymarblerun-2',
+    name: 'FishyMarbleRun 2',
+    kind: 'Game',
+    summary: 'A marble race with fish for Twitch streams. Viewers join from chat, and the fish race on the stream.',
+    languages: ['Godot', 'GDScript'],
+    repo: 'https://github.com/The127/fishygame2',
+    website: {
+      label: 'Streamer guide',
+      href: 'https://github.com/The127/fishygame2/blob/main/docs/STREAMER_GUIDE.md',
+    },
+    problem: () => (
+      <p>
+        Sure, marble race games for Twitch exist, but none of them are fish themed. Let me
+        check… Marbles on Stream: marbles. Tumble Marble: marbles. King of the Chat: marble
+        warriors. Not a single fish. Well, now there is FishyMarbleRun 2! (Don't ask about
+        FishyMarbleRun 1.)
+      </p>
+    ),
+    howItWorks: () => (
+      <>
+        <p>
+          The game is a web page that a streamer adds to OBS as a browser source. Viewers join a
+          race with a command in Twitch chat, and their fish roll down a marble run with real
+          physics.
+        </p>
+        <p>
+          On the way, fish can grab glowing treasures: a coin, a pearl or a chest. The points buy
+          things in a shop. The streamer gets three powers per race: a fishing rod that yanks a
+          fish back up the track, a net that holds fish in place, and a bubble blast that shoves
+          them away.
+        </p>
+      </>
+    ),
+    status: () => (
+      <p>
+        Live at <a href="https://the127.github.io/fishygame2/">the127.github.io/fishygame2</a>.
+        The streamer guide explains how to add it to a stream.
+      </p>
+    ),
+  },
+  {
     slug: 'miso',
     name: 'miso',
     kind: 'Image builder',
