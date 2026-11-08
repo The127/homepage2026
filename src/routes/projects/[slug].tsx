@@ -14,7 +14,7 @@ export default function ProjectPage() {
         <>
           <PageMeta title={p().name} description={p().kind} />
           <p><A href="/projects">Projects</A></p>
-          <h1 class="mt-2 text-3xl font-semibold">{p().name}</h1>
+          <h1 class="mt-2">{p().name}</h1>
           <p class="mt-4">{p().kind}</p>
           <p class="mt-4">Placeholder: what it is, why I built it, how it works and its status.</p>
         </>

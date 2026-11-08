@@ -7,28 +7,39 @@ const NAV = [
   { href: '/about', label: 'About' },
 ];
 
+const barLink = 'inline-flex min-h-11 items-center text-on-surface no-underline hover:underline [&.active]:underline';
+
 export default function Layout(props: { children: JSX.Element }) {
   return (
-    <div class="mx-auto flex min-h-screen max-w-3xl flex-col px-4">
-      <header class="flex flex-wrap items-baseline justify-between gap-4 py-6">
-        <A href="/" class="font-semibold">Karolin Kostial</A>
-        <nav aria-label="Main">
-          <ul class="flex gap-6">
-            {NAV.map(item => (
-              <li>
-                <A href={item.href} activeClass="underline">{item.label}</A>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+    <>
+      <a
+        href="#main"
+        class="sr-only bg-surface p-2 focus:not-sr-only focus:absolute focus:top-2 focus:left-2"
+      >
+        Skip to content
+      </a>
 
-      <main class="flex-1 py-8">{props.children}</main>
+      <div class="mx-auto flex min-h-screen max-w-3xl flex-col px-4">
+        <header class="flex flex-wrap items-center justify-between gap-x-6 border-b border-outline-variant py-4">
+          <A href="/" end class={`${barLink} font-semibold`}>Karolin Kostial</A>
+          <nav aria-label="Main">
+            <ul class="flex gap-6">
+              {NAV.map(item => (
+                <li>
+                  <A href={item.href} class={barLink}>{item.label}</A>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </header>
 
-      <footer class="flex flex-wrap gap-6 py-6 text-sm">
-        <a href="https://github.com/The127" rel="noopener">GitHub</a>
-        <a href="/impressum.html">Impressum</a>
-      </footer>
-    </div>
+        <main id="main" class="flex-1 py-12">{props.children}</main>
+
+        <footer class="flex flex-wrap gap-x-6 border-t border-outline-variant py-4 text-sm">
+          <a href="https://github.com/The127" rel="noopener" class={barLink}>GitHub</a>
+          <a href="/impressum.html" class={barLink}>Impressum</a>
+        </footer>
+      </div>
+    </>
   );
 }

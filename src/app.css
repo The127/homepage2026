@@ -1,1 +1,47 @@
 @import 'tailwindcss';
+
+/* The rules behind these values are in docs/design.md. */
+
+@theme {
+  --color-surface: light-dark(var(--color-stone-50), var(--color-stone-900));
+  --color-on-surface: light-dark(var(--color-stone-900), var(--color-stone-100));
+  --color-on-surface-variant: light-dark(var(--color-stone-600), var(--color-stone-400));
+  --color-outline-variant: light-dark(var(--color-stone-200), var(--color-stone-800));
+  --color-primary: light-dark(var(--color-blue-700), var(--color-blue-300));
+
+  --container-prose: 65ch;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  body {
+    @apply bg-surface text-base text-on-surface antialiased;
+  }
+
+  h1 {
+    @apply text-4xl font-semibold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  main p {
+    @apply max-w-prose;
+  }
+
+  a {
+    @apply text-primary underline underline-offset-2;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+}
