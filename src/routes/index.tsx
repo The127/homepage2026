@@ -64,7 +64,7 @@ export default function Home() {
 
       <h2 class="mt-12">Music</h2>
       <p class="mt-4">
-        I make electronic music as Lia Aura. There are four albums so far.{' '}
+        I make electronic music as Lia Aura. There are four releases so far.{' '}
         <A href="/music">Listen to them</A>.
       </p>
     </>
