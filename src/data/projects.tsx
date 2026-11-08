@@ -248,8 +248,8 @@ aibox run`,
           over you clean up the place. Walter owns the stand and takes his cut.
         </p>
         <p>
-          Then the regulars start coming back every night for the same order, and their skin
-          turns grey. How the game ends depends on you.
+          Some customers come back every night and always order the same thing. They start
+          behaving oddly. How the game ends depends on you.
         </p>
       </>
     ),
