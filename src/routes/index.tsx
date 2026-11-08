@@ -2,6 +2,7 @@ import { A } from '@solidjs/router';
 import { For } from 'solid-js';
 import Band from '~/components/Band';
 import Button from '~/components/Button';
+import Link from '~/components/Link';
 import PageMeta from '~/components/PageMeta';
 import ProjectCard from '~/components/ProjectCard';
 import Section from '~/components/Section';
@@ -40,9 +41,9 @@ export default function Home() {
             />
             <figcaption class="mt-2 text-sm text-on-surface-variant">
               Photo by{' '}
-              <a href="https://commons.wikimedia.org/wiki/File:Peeking_Raccoon_(6371172113).jpg">
+              <Link href="https://commons.wikimedia.org/wiki/File:Peeking_Raccoon_(6371172113).jpg">
                 Neil McIntosh
-              </a>
+              </Link>
               , CC BY 2.0
             </figcaption>
           </figure>

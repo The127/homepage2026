@@ -2,6 +2,7 @@ import { A } from '@solidjs/router';
 import { siBandcamp, siGithub } from 'simple-icons';
 import { For, JSX } from 'solid-js';
 import BrandIcon from '~/components/BrandIcon';
+import Link from '~/components/Link';
 import ThemeSwitch from '~/components/ThemeSwitch';
 
 const NAV = [
@@ -55,16 +56,16 @@ export default function Layout(props: { children: JSX.Element }) {
           <div class="grid items-center gap-4 py-8 text-center sm:grid-cols-[1fr_auto_1fr] sm:text-left">
             <ul class="flex justify-center gap-6 sm:justify-start">
               <li>
-                <a href="https://github.com/The127" class={footerLink}>
+                <Link href="https://github.com/The127" class={footerLink}>
                   <BrandIcon icon={siGithub} />
                   GitHub
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://liaaura.bandcamp.com" class={footerLink}>
+                <Link href="https://liaaura.bandcamp.com" class={footerLink}>
                   <BrandIcon icon={siBandcamp} />
                   Bandcamp
-                </a>
+                </Link>
               </li>
             </ul>
             <p class="text-center text-on-surface-variant">

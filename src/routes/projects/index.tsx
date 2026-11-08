@@ -1,5 +1,6 @@
 import { For } from 'solid-js';
 import Card from '~/components/Card';
+import Link from '~/components/Link';
 import PageHeader from '~/components/PageHeader';
 import PageMeta from '~/components/PageMeta';
 import ProjectCard from '~/components/ProjectCard';
@@ -20,7 +21,7 @@ function LibraryList(props: { language: Library['language'] }) {
         <For each={libraries.filter(l => l.language === props.language)}>
           {l => (
             <li class="grid gap-x-6 gap-y-0.5 py-3 sm:grid-cols-[11rem_1fr]">
-              <a href={l.repo} class="font-semibold">{l.name}</a>
+              <Link href={l.repo} class="font-semibold">{l.name}</Link>
               <p>{l.summary}</p>
             </li>
           )}
@@ -61,7 +62,7 @@ export default function Projects() {
                 <p class="mt-1 text-on-surface-variant">{c.about}</p>
                 <p class="mt-3">{c.work}</p>
                 <p class="mt-auto pt-4 text-sm">
-                  <a href={c.link.href}>{c.link.label}</a>
+                  <Link href={c.link.href}>{c.link.label}</Link>
                 </p>
               </Card>
             )}

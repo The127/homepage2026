@@ -1,3 +1,4 @@
+import Link from '~/components/Link';
 import PageHeader from '~/components/PageHeader';
 import PageMeta from '~/components/PageMeta';
 import Section from '~/components/Section';
@@ -26,7 +27,7 @@ export default function Impressum() {
       </Section>
 
       <Section title="Kontakt">
-        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <Link href={`mailto:${EMAIL}`}>{EMAIL}</Link>
       </Section>
 
       <Section title="Datenschutz">
@@ -39,9 +40,9 @@ export default function Impressum() {
             Auf der Seite „Music“ lässt sich für jede Veröffentlichung der Player von Spotify
             laden. Er lädt erst, wenn Sie auf „Load Spotify player“ klicken. Danach setzt Spotify
             Cookies und erhält Ihre IP-Adresse. Dafür gilt die{' '}
-            <a href="https://www.spotify.com/de/legal/privacy-policy/">
+            <Link href="https://www.spotify.com/de/legal/privacy-policy/">
               Datenschutzerklärung von Spotify
-            </a>
+            </Link>
             .
           </p>
         </div>

@@ -135,6 +135,11 @@ of a document.
   tall with fully rounded ends. Material's buttons are 40px, but our target
   size rule asks for 44px. A filled button is for the main action in a place,
   an outlined button for the others.
+- `Link` for every link. Links to pages on this site go through the router.
+  Links to other sites open in a new tab, with `rel="noopener noreferrer"`,
+  and say so before anyone clicks: Lucide's external link icon after the text,
+  and "(opens in a new tab)" for screen readers (WCAG technique G201). Don't
+  write an `<a>` by hand, except for the skip link.
 - `Chip` for small labels, like a language or a release type, and `Chips` for
   a row of them. Chips aren't clickable, so they must not look like buttons:
   a filled `outline-variant` background at 60%, no border, 6px corners and

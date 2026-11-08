@@ -1,4 +1,5 @@
 import type { JSX } from 'solid-js';
+import Link from '~/components/Link';
 
 export interface Link {
   label: string;
@@ -63,7 +64,7 @@ export const projects: Project[] = [
     status: () => (
       <p>
         In early development, with no release yet. The design is written down as{' '}
-        <a href="https://github.com/tidegate-dev/enhancements">Tidegate Enhancement Proposals</a>.
+        <Link href="https://github.com/tidegate-dev/enhancements">Tidegate Enhancement Proposals</Link>.
       </p>
     ),
   },
@@ -96,9 +97,9 @@ export const projects: Project[] = [
           If you use an API key, it never enters the VM. Claude Code gets a placeholder, and aibox
           puts in the real key on the way to the Claude API. A login with a Claude subscription
           goes into the VM as it is, because{' '}
-          <a href="https://code.claude.com/docs/en/legal-and-compliance#authentication-and-credential-use">
+          <Link href="https://code.claude.com/docs/en/legal-and-compliance#authentication-and-credential-use">
             Anthropic's terms
-          </a>{' '}
+          </Link>{' '}
           don't allow a tool like aibox to handle it. Your git login stays on your machine, and git
           in the VM can only push to the branches you name. It can't stop a force push to one of
           those branches, though.
@@ -148,9 +149,9 @@ aibox run`,
         <p>
           It stores its data in PostgreSQL, or in SQLite for small setups, and several instances
           can run side by side with leader election. Around it are an{' '}
-          <a href="https://github.com/The127/KeylineUi">admin UI</a>, a{' '}
-          <a href="https://github.com/The127/keyline-operator">Kubernetes operator</a> and a{' '}
-          <a href="https://github.com/The127/KeylineNet">.NET client</a>.
+          <Link href="https://github.com/The127/KeylineUi">admin UI</Link>, a{' '}
+          <Link href="https://github.com/The127/keyline-operator">Kubernetes operator</Link> and a{' '}
+          <Link href="https://github.com/The127/KeylineNet">.NET client</Link>.
         </p>
       </>
     ),
@@ -212,7 +213,7 @@ aibox run`,
     ),
     status: () => (
       <p>
-        Live at <a href="https://daw.karo.gay">daw.karo.gay</a>. The code isn't public.
+        Live at <Link href="https://daw.karo.gay">daw.karo.gay</Link>. The code isn't public.
       </p>
     ),
   },
@@ -250,7 +251,7 @@ aibox run`,
     status: () => (
       <p>
         Finished. It runs in the browser at{' '}
-        <a href="https://hotdogstand.vercel.app">hotdogstand.vercel.app</a>. The code isn't
+        <Link href="https://hotdogstand.vercel.app">hotdogstand.vercel.app</Link>. The code isn't
         public.
       </p>
     ),
@@ -291,7 +292,7 @@ aibox run`,
     ),
     status: () => (
       <p>
-        Live at <a href="https://the127.github.io/fishygame2/">the127.github.io/fishygame2</a>.
+        Live at <Link href="https://the127.github.io/fishygame2/">the127.github.io/fishygame2</Link>.
         The streamer guide explains how to add it to a stream.
       </p>
     ),
@@ -364,7 +365,7 @@ CHECK command -v htop`,
         Dockyard implements the OCI Distribution Specification, so Docker, Podman and other tools
         can push and pull images from it. It has several tenants, each with its own projects and
         repositories, and an API to manage them. There's also a{' '}
-        <a href="https://github.com/The127/dockyard-ui">web UI</a>.
+        <Link href="https://github.com/The127/dockyard-ui">web UI</Link>.
       </p>
     ),
     status: () => (
@@ -395,7 +396,7 @@ go build -o dockyard ./cmd/dockyard
       <>
         <p>
           Mako stores configuration as keys in namespaces. Underneath it keeps everything in{' '}
-          <a href="https://github.com/rqlite/rqlite">rqlite</a>.
+          <Link href="https://github.com/rqlite/rqlite">rqlite</Link>.
         </p>
         <p>
           Clients log in with short-lived OIDC tokens, so there are no shared passwords to leak,
@@ -439,7 +440,7 @@ mako kv get my-app log-level`,
     status: () => (
       <p>
         Early. So far you can log in, create projects and plant ideas in a project's garden. The{' '}
-        <a href="https://github.com/The127/frogly/blob/main/docs/vision.md">vision</a> describes
+        <Link href="https://github.com/The127/frogly/blob/main/docs/vision.md">vision</Link> describes
         where it's going.
       </p>
     ),
@@ -454,7 +455,7 @@ mako kv get my-app log-level`,
     website: { label: 'Docs', href: 'https://the127.github.io/MScript/mscript/module-summary.html' },
     problem: () => (
       <p>
-        In <a href="https://store.steampowered.com/app/544550/Stationeers/">Stationeers</a> you
+        In <Link href="https://store.steampowered.com/app/544550/Stationeers/">Stationeers</Link> you
         program chips in a variant of MIPS assembly. That makes scripts tedious to write and hard
         to read or reuse.
       </p>

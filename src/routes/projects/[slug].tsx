@@ -4,6 +4,7 @@ import { JSX, Show } from 'solid-js';
 import BrandIcon from '~/components/BrandIcon';
 import Button from '~/components/Button';
 import Chips from '~/components/Chips';
+import Link from '~/components/Link';
 import PageHeader from '~/components/PageHeader';
 import PageMeta from '~/components/PageMeta';
 import SharedSection from '~/components/Section';
@@ -31,7 +32,7 @@ function MoreLink(props: { project: Project }) {
       {t => (
         <div class="border-t border-outline-variant pt-10 md:pl-[12.5rem]">
           <p>
-            There's more in the <a href={t().href}>{t().label}</a>.
+            There's more in the <Link href={t().href}>{t().label}</Link>.
           </p>
         </div>
       )}
