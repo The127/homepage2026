@@ -238,20 +238,18 @@ aibox run`,
       <>
         <p>
           Each night runs from 22:00 to 02:00 on the stall's clock, which takes eight minutes.
-          Customers line up at the window and mumble their order in a speech bubble, each with a
-          voice of their own. You build every hot dog by hand: sausages from the fridge onto the
-          roller grill, a bun on a plate, then sauce and onions right where you squeeze and
-          sprinkle them.
+          Customers line up and order at the window. You build every hot dog by hand: sausages
+          from the fridge onto the roller grill, a bun on a plate, then sauce and onions right
+          where you squeeze and sprinkle them.
         </p>
         <p>
-          Sausages brown after 15 seconds and burn after a minute and a half. Leave them burning
-          and the stall catches fire. Buns, toppings and sauce run out, so you refill them from
-          the stock room. At closing you scrub the grill, and Walter, who owns the stand, takes
-          his cut.
+          While you serve, you also have to watch the grill, because sausages can burn. Buns,
+          toppings and sauce run out, so you fetch more from the stock room. When the night is
+          over you clean up the place. Walter owns the stand and takes his cut.
         </p>
         <p>
           Then the regulars start coming back every night for the same order, and their skin
-          turns grey. How the week ends depends on how much you go looking.
+          turns grey. How the game ends depends on you.
         </p>
       </>
     ),
