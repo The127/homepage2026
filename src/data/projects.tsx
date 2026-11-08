@@ -162,6 +162,38 @@ aibox run`,
     ),
   },
   {
+    slug: 'beanstack',
+    name: 'Beanstack',
+    kind: 'Hypervisor',
+    summary: 'Runs virtual machines, microVMs and containers across several of my own machines, from one API and CLI.',
+    languages: ['Go'],
+    problem: () => (
+      <p>
+        I wanted to understand how a system like Incus works by building one from scratch. And I
+        wanted OCI containers and microVMs as first-class parts of it.
+      </p>
+    ),
+    howItWorks: () => (
+      <>
+        <p>
+          Beanstack runs full virtual machines with QEMU, microVMs with Cloud Hypervisor, and OCI
+          containers, across several nodes. You drive it with the <code>beanstack</code> CLI:
+          networks, address pools, volumes, instances and the cluster itself.
+        </p>
+        <p>
+          OCI images like nginx or Postgres boot as microVMs. Beanstack flattens the image into an
+          ext4 file system, and a small initramfs mounts it and starts the image's real entrypoint
+          with its environment. So the image behaves like it does in Docker.
+        </p>
+        <p>
+          A network either gets its addresses from Beanstack, or leaves that to DHCP from outside.
+          Each node runs an agent that keeps its workloads running when the control plane is down.
+        </p>
+      </>
+    ),
+    status: () => <p>Private and in active development. The code isn't public yet.</p>,
+  },
+  {
     slug: 'raccoon-daw',
     name: 'raccoon-daw',
     kind: 'Digital audio workstation',
