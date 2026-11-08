@@ -1,5 +1,7 @@
 import { A } from '@solidjs/router';
+import { For } from 'solid-js';
 import PageMeta from '~/components/PageMeta';
+import Section from '~/components/Section';
 import { projects } from '~/data/projects';
 
 const NOW_UPDATED = 'November 2026';
@@ -9,15 +11,15 @@ export default function Home() {
     <>
       <PageMeta description="Platform engineer at Giant Swarm. I build open-source infrastructure and make electronic music." />
 
-      <div class="flex flex-col-reverse gap-6 sm:flex-row sm:items-start sm:justify-between">
-        <div>
+      <div class="flex flex-col-reverse gap-8 pb-12 sm:flex-row sm:items-end sm:justify-between">
+        <div class="max-w-prose">
           <h1>Karolin Kostial</h1>
-          <p class="mt-4">
+          <p class="mt-6 text-lg">
             I'm a platform engineer at Giant Swarm, where I work on our security platform. I'd
             call myself a git archeologist and YAML engineer, though. I live in Karlsruhe. In my
             free time I build open-source infrastructure and make electronic music.
           </p>
-          <p class="mt-4">And I love raccoons.</p>
+          <p class="mt-4 text-lg">And I love raccoons.</p>
         </div>
 
         <figure class="w-40 shrink-0">
@@ -38,35 +40,38 @@ export default function Home() {
         </figure>
       </div>
 
-      <h2 class="mt-12">Now</h2>
-      <p class="mt-1 text-sm text-on-surface-variant">Updated {NOW_UPDATED}</p>
-      <ul class="mt-4 list-disc space-y-2 pl-5">
-        <li>
-          I'm building <A href="/projects/tidegate">Tidegate</A>, which is in early development.
-        </li>
-        <li>I'm learning to scuba dive and I'm doing my PADI Open Water Diver course.</li>
-        <li>I'm learning Chinese and I'm at HSK&nbsp;2.</li>
-        <li>I'm learning Japanese with an online tutor.</li>
-      </ul>
+      <Section title="Now">
+        <ul class="list-disc space-y-2 pl-5">
+          <li>
+            I'm building <A href="/projects/tidegate">Tidegate</A>, which is in early development.
+          </li>
+          <li>I'm learning to scuba dive and I'm doing my PADI Open Water Diver course.</li>
+          <li>I'm learning Chinese and studying for HSK&nbsp;3.</li>
+          <li>I'm learning Japanese with an online tutor.</li>
+        </ul>
+        <p class="mt-4 text-sm text-on-surface-variant">Updated {NOW_UPDATED}</p>
+      </Section>
 
-      <h2 class="mt-12">Projects</h2>
-      <ul class="mt-4 space-y-4">
-        {projects
-          .filter(p => p.featured)
-          .map(p => (
-            <li>
-              <A href={`/projects/${p.slug}`} class="font-semibold">{p.name}</A>
-              <p>{p.summary}</p>
-            </li>
-          ))}
-      </ul>
-      <p class="mt-4"><A href="/projects">All projects</A></p>
+      <Section title="Projects">
+        <ul class="space-y-5">
+          <For each={projects.filter(p => p.featured)}>
+            {p => (
+              <li>
+                <A href={`/projects/${p.slug}`} class="font-semibold">{p.name}</A>
+                <p class="mt-0.5">{p.summary}</p>
+              </li>
+            )}
+          </For>
+        </ul>
+        <p class="mt-6"><A href="/projects">All projects</A></p>
+      </Section>
 
-      <h2 class="mt-12">Music</h2>
-      <p class="mt-4">
-        I make electronic music as Lia Aura. There are four releases so far.{' '}
-        <A href="/music">Listen to them</A>.
-      </p>
+      <Section title="Music">
+        <p>
+          I make electronic music as Lia Aura. There are four releases so far.{' '}
+          <A href="/music">Listen to them</A>.
+        </p>
+      </Section>
     </>
   );
 }

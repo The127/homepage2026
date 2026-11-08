@@ -21,7 +21,7 @@ export default function Layout(props: { children: JSX.Element }) {
         Skip to content
       </a>
 
-      <div class="mx-auto flex min-h-screen max-w-3xl flex-col px-4">
+      <div class="mx-auto flex min-h-screen max-w-5xl flex-col px-4 sm:px-6">
         <header class="flex flex-wrap items-center justify-between gap-x-6 border-b border-outline-variant py-4">
           <A href="/" end class={`${barLink} font-semibold`}>Karolin Kostial</A>
           <nav aria-label="Main">

@@ -36,9 +36,10 @@ than 0.875rem (14px), which is Material's `body-medium`.
 
 | Element | Tailwind | Size / line height | Material role |
 | --- | --- | --- | --- |
-| `h1` | `text-4xl` | 2.25rem / 2.5rem | `display-small` |
+| `h1` | `text-4xl`, `text-5xl` from 640px | 2.25rem, then 3rem | `display-small`, then `display-medium` |
 | `h2` | `text-2xl` | 1.5rem / 2rem | `headline-small` |
 | `h3` | `text-xl` | 1.25rem / 1.75rem | `title-large` |
+| Intro paragraph | `text-lg` | 1.125rem / 1.75rem | `title-medium` size |
 | Body | `text-base` | 1rem / 1.5rem | `body-large` |
 | Small | `text-sm` | 0.875rem / 1.25rem | `body-medium` |
 
@@ -90,6 +91,16 @@ the current page instead.
 ## Layout and spacing
 
 Spacing uses Tailwind's 0.25rem (4px) steps. Material uses the same 4dp grid.
+
+The layout is editorial, like a well-set book. Pages are at most 64rem wide.
+Each page starts with `PageHeader`: the title and an optional intro paragraph
+in larger text. The page then continues in sections, built with `Section`.
+On screens 768px and wider, a section's heading sits in a 10rem column on the
+left, like a margin note, and its content on the right. A fine rule in
+`outline-variant` separates the sections. On narrow screens the heading sits
+on top.
+
+Running text stays within `max-w-prose`, even where the column is wider.
 
 The page works at 320px wide without scrolling sideways (WCAG 1.4.10), and
 with text zoomed to 200% (WCAG 1.4.4).

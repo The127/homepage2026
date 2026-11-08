@@ -1,4 +1,6 @@
+import PageHeader from '~/components/PageHeader';
 import PageMeta from '~/components/PageMeta';
+import Section from '~/components/Section';
 
 const EMAIL = 'karolinkostial@gmail.com';
 
@@ -6,32 +8,32 @@ export default function Impressum() {
   return (
     <div lang="de">
       <PageMeta title="Impressum" description="Impressum und Datenschutzhinweis." />
-      <h1>Impressum</h1>
-      <p lang="en" class="mt-4 text-on-surface-variant">
-        I'm doxxing myself so I don't get sued, as § 5 DDG requires.
-      </p>
+      <PageHeader title="Impressum">
+        <span lang="en">I'm doxxing myself so I don't get sued, as § 5 DDG requires.</span>
+      </PageHeader>
 
-      <h2 class="mt-12">Angaben gemäß § 5 DDG</h2>
-      <address class="mt-4 not-italic">
-        Karolin Suzanna Illy Kostial
-        <br />
-        Leopold Straße 51
-        <br />
-        76133 Karlsruhe
-        <br />
-        Deutschland
-      </address>
+      <Section title="Angaben gemäß § 5 DDG">
+        <address class="not-italic">
+          Karolin Suzanna Illy Kostial
+          <br />
+          Leopold Straße 51
+          <br />
+          76133 Karlsruhe
+          <br />
+          Deutschland
+        </address>
+      </Section>
 
-      <h2 class="mt-12">Kontakt</h2>
-      <p class="mt-4">
+      <Section title="Kontakt">
         <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-      </p>
+      </Section>
 
-      <h2 class="mt-12">Datenschutz</h2>
-      <p class="mt-4">
-        Diese Website ist ein privates, nicht-kommerzielles Projekt. Es werden keine Cookies
-        gesetzt, keine personenbezogenen Daten erhoben und keine Tracking-Dienste eingesetzt.
-      </p>
+      <Section title="Datenschutz">
+        <p class="max-w-prose">
+          Diese Website ist ein privates, nicht-kommerzielles Projekt. Es werden keine Cookies
+          gesetzt, keine personenbezogenen Daten erhoben und keine Tracking-Dienste eingesetzt.
+        </p>
+      </Section>
     </div>
   );
 }

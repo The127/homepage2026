@@ -3,6 +3,7 @@ import Play from 'lucide-solid/icons/play';
 import { siBandcamp, siSpotify } from 'simple-icons';
 import { createEffect, createSignal, For, on, Show } from 'solid-js';
 import BrandIcon from '~/components/BrandIcon';
+import PageHeader from '~/components/PageHeader';
 import PageMeta from '~/components/PageMeta';
 import { albums, type Album } from '~/data/albums';
 
@@ -49,15 +50,14 @@ export default function Music() {
         title="Music"
         description="Electronic music by Karolin Kostial as Lia Aura: three albums and an EP."
       />
-      <h1>Music</h1>
-      <p class="mt-4">
+      <PageHeader title="Music">
         I make electronic music as Lia Aura. Three albums and an EP came out in 2022. You can
         listen to every track here, or buy them on Bandcamp.
-      </p>
+      </PageHeader>
 
       <For each={albums}>
         {album => (
-          <section class="mt-16 grid gap-6 sm:grid-cols-[10rem_1fr]">
+          <section class="grid gap-x-10 gap-y-6 border-t border-outline-variant py-10 sm:grid-cols-[10rem_1fr]">
             <img
               src={album.cover}
               alt={album.coverAlt}
