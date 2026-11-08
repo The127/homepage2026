@@ -1,5 +1,12 @@
 {
   "framework": null,
   "buildCommand": "npm run build",
-  "outputDirectory": ".output/public"
+  "outputDirectory": ".output/public",
+  "redirects": [
+    {
+      "source": "/impressum.html",
+      "destination": "/impressum",
+      "permanent": true
+    }
+  ]
 }

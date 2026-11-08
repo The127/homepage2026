@@ -42,7 +42,7 @@ export default function Layout(props: { children: JSX.Element }) {
             <BrandIcon icon={siGithub} />
             GitHub
           </a>
-          <a href="/impressum.html" class={barLink}>Impressum</a>
+          <A href="/impressum" class={barLink}>Impressum</A>
         </footer>
       </div>
     </>
