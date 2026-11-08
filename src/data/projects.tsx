@@ -93,9 +93,15 @@ export const projects: Project[] = [
           second.
         </p>
         <p>
-          Your API key never enters the VM. Claude Code gets a placeholder, and aibox puts in the
-          real key on the way to the Claude API. Your git login stays on your machine too, and git
-          in the VM can only push to the branches you name.
+          If you use an API key, it never enters the VM. Claude Code gets a placeholder, and aibox
+          puts in the real key on the way to the Claude API. A login with a Claude subscription
+          goes into the VM as it is, because{' '}
+          <a href="https://code.claude.com/docs/en/legal-and-compliance#authentication-and-credential-use">
+            Anthropic's terms
+          </a>{' '}
+          don't allow a tool like aibox to handle it. Your git login stays on your machine, and git
+          in the VM can only push to the branches you name. It can't stop a force push to one of
+          those branches, though.
         </p>
         <p>
           Inside the VM, Claude Code works like it always does, and its changes show up in your
