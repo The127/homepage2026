@@ -1,4 +1,4 @@
-import { JSX, Show } from 'solid-js';
+import { children, JSX, Show } from 'solid-js';
 import Band from '~/components/Band';
 
 /**
@@ -11,17 +11,24 @@ export default function PageHeader(props: {
   intro?: JSX.Element;
   children?: JSX.Element;
 }) {
+  // Each read of a JSX prop builds its elements again. During hydration the
+  // second build finds no server elements left and crashes, so each prop is
+  // resolved exactly once here and then only read through these.
+  const above = children(() => props.above);
+  const intro = children(() => props.intro);
+  const below = children(() => props.children);
+
   return (
     <Band class="py-12 sm:py-16">
-      <Show when={props.above}>
-        <div class="mb-3">{props.above}</div>
+      <Show when={above()}>
+        <div class="mb-3">{above()}</div>
       </Show>
       <h1>{props.title}</h1>
-      <Show when={props.intro}>
-        <p class="mt-6 max-w-prose text-lg">{props.intro}</p>
+      <Show when={intro()}>
+        <p class="mt-6 max-w-prose text-lg">{intro()}</p>
       </Show>
-      <Show when={props.children}>
-        <div class="mt-8">{props.children}</div>
+      <Show when={below()}>
+        <div class="mt-8">{below()}</div>
       </Show>
     </Band>
   );
