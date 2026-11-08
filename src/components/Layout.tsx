@@ -2,6 +2,7 @@ import { A } from '@solidjs/router';
 import { siBandcamp, siGithub } from 'simple-icons';
 import { For, JSX } from 'solid-js';
 import BrandIcon from '~/components/BrandIcon';
+import ThemeSwitch from '~/components/ThemeSwitch';
 
 const NAV = [
   { href: '/projects', label: 'Projects' },
@@ -43,6 +44,7 @@ export default function Layout(props: { children: JSX.Element }) {
                   </For>
                 </ul>
               </nav>
+              <ThemeSwitch />
             </div>
           </div>
         </header>

@@ -86,9 +86,14 @@ current values:
 
 If you change a colour, check these pairs again.
 
-The site follows the system's light or dark setting and has no toggle of its
-own. Apple advises against an app-specific setting, because people then have
-to change it in two places.
+The site follows the system's light or dark setting by default. A switch in
+the header lets visitors override it with light or dark, and "System" goes
+back to the default. Apple advises against such a setting in apps, because
+people then have to change it in two places. A website has no app settings,
+though, and visitors may want different colours for one site, so the switch
+stays, with the system as the default. The choice lives in `localStorage`,
+not in a cookie, and an inline script in `entry-server.tsx` applies it before
+the first paint.
 
 Links in running text are underlined. Colour alone isn't enough to show that
 something is a link (WCAG 1.4.1). Links in the header and footer don't need
@@ -184,7 +189,10 @@ Apple says not to add motion for the sake of motion.
 
 Colour changes, like hover, use the `transition-state` utility from
 `src/app.css`: 150ms, Material's `short3`. Don't write a transition by hand,
-so everything changes at the same speed.
+so everything changes at the same speed. When the colour switch changes the
+theme, a view transition cross-fades the whole page as one picture, also in
+150ms, and single elements don't fade on their own meanwhile. With reduced
+motion, or in a browser without view transitions, the theme changes at once.
 Other transitions take 150ms to 300ms, which is Material's `short3` to
 `medium2` range. With reduced motion turned on, nothing moves (`motion-safe:` in
 Tailwind, WCAG 2.3.3).
