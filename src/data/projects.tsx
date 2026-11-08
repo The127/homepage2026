@@ -169,8 +169,10 @@ aibox run`,
     languages: ['Go'],
     problem: () => (
       <p>
-        I wanted to understand how a system like Incus works by building one from scratch. And I
-        wanted OCI containers and microVMs as first-class parts of it.
+        Beanstack started because I wanted to understand how a system like Incus works from the
+        ground up, so I'm building one from scratch. It treats OCI containers and microVMs as
+        first-class workloads next to full virtual machines, and it's designed to scale from a
+        single node to large clusters.
       </p>
     ),
     howItWorks: () => (
