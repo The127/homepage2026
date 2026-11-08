@@ -1,7 +1,11 @@
 import { A } from '@solidjs/router';
 import { For } from 'solid-js';
+import Band from '~/components/Band';
+import Button from '~/components/Button';
 import PageMeta from '~/components/PageMeta';
+import ProjectCard from '~/components/ProjectCard';
 import Section from '~/components/Section';
+import { albums } from '~/data/albums';
 import { projects } from '~/data/projects';
 
 const NOW_UPDATED = 'November 2026';
@@ -11,34 +15,38 @@ export default function Home() {
     <>
       <PageMeta description="Platform engineer at Giant Swarm. I build open-source infrastructure and make electronic music." />
 
-      <div class="flex flex-col-reverse gap-8 pb-12 sm:flex-row sm:items-end sm:justify-between">
-        <div class="max-w-prose">
-          <h1>Karolin Kostial</h1>
-          <p class="mt-6 text-lg">
-            I'm a platform engineer at Giant Swarm, where I work on our security platform. I'd
-            call myself a git archeologist and YAML engineer, though. I live in Karlsruhe. In my
-            free time I build open-source infrastructure and make electronic music.
-          </p>
-          <p class="mt-4 text-lg">And I love raccoons.</p>
-        </div>
+      <Band class="flex flex-col gap-10 py-12 sm:flex-row sm:items-center sm:justify-between sm:py-20">
+          <div class="max-w-prose">
+            <h1>Karolin Kostial</h1>
+            <p class="mt-6 text-lg">
+              I'm a platform engineer at Giant Swarm, where I work on our security platform. I'd
+              call myself a git archeologist and YAML engineer, though. I live in Karlsruhe. In
+              my free time I build open-source infrastructure and make electronic music.
+            </p>
+            <p class="mt-4 text-lg">And I love raccoons.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <Button href="/projects">Projects</Button>
+              <Button href="/about" variant="outlined">About me</Button>
+            </div>
+          </div>
 
-        <figure class="w-40 shrink-0">
-          <img
-            src="/raccoon.webp"
-            width="600"
-            height="399"
-            alt="A raccoon peeking out of a hole in a green wall, lying in straw."
-            class="aspect-square w-full rounded object-cover object-[50%_55%]"
-          />
-          <figcaption class="mt-1 text-sm text-on-surface-variant">
-            Photo by{' '}
-            <a href="https://commons.wikimedia.org/wiki/File:Peeking_Raccoon_(6371172113).jpg">
-              Neil McIntosh
-            </a>
-            , CC BY 2.0
-          </figcaption>
-        </figure>
-      </div>
+          <figure class="w-48 shrink-0 sm:w-56">
+            <img
+              src="/raccoon.webp"
+              width="600"
+              height="399"
+              alt="A raccoon peeking out of a hole in a green wall, lying in straw."
+              class="aspect-square w-full rounded-xl object-cover object-[50%_55%]"
+            />
+            <figcaption class="mt-2 text-sm text-on-surface-variant">
+              Photo by{' '}
+              <a href="https://commons.wikimedia.org/wiki/File:Peeking_Raccoon_(6371172113).jpg">
+                Neil McIntosh
+              </a>
+              , CC BY 2.0
+            </figcaption>
+          </figure>
+      </Band>
 
       <Section title="Now">
         <ul class="list-disc space-y-2 pl-5">
@@ -53,24 +61,35 @@ export default function Home() {
       </Section>
 
       <Section title="Projects">
-        <ul class="space-y-5">
-          <For each={projects.filter(p => p.featured)}>
-            {p => (
-              <li>
-                <A href={`/projects/${p.slug}`} class="font-semibold">{p.name}</A>
-                <p class="mt-0.5">{p.summary}</p>
-              </li>
-            )}
-          </For>
-        </ul>
-        <p class="mt-6"><A href="/projects">All projects</A></p>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <For each={projects.filter(p => p.featured)}>{p => <ProjectCard project={p} />}</For>
+        </div>
+        <div class="mt-6">
+          <Button href="/projects" variant="outlined">All projects</Button>
+        </div>
       </Section>
 
       <Section title="Music">
-        <p>
-          I make electronic music as Lia Aura. There are four releases so far.{' '}
-          <A href="/music">Listen to them</A>.
+        <p class="max-w-prose">
+          I make electronic music as Lia Aura.
         </p>
+        <div class="mt-6 grid max-w-2xl grid-cols-3 gap-3 sm:grid-cols-6">
+          <For each={albums}>
+            {a => (
+              <img
+                src={a.cover}
+                alt={a.coverAlt}
+                width="600"
+                height="600"
+                loading="lazy"
+                class="aspect-square w-full rounded-lg"
+              />
+            )}
+          </For>
+        </div>
+        <div class="mt-6">
+          <Button href="/music" variant="outlined">Listen</Button>
+        </div>
       </Section>
     </>
   );

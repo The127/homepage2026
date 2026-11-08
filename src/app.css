@@ -4,10 +4,13 @@
 
 @theme {
   --color-surface: light-dark(var(--color-stone-50), var(--color-stone-900));
+  --color-surface-container: light-dark(var(--color-stone-100), var(--color-stone-800));
   --color-on-surface: light-dark(var(--color-stone-900), var(--color-stone-100));
   --color-on-surface-variant: light-dark(var(--color-stone-600), var(--color-stone-400));
-  --color-outline-variant: light-dark(var(--color-stone-200), var(--color-stone-800));
+  --color-outline: var(--color-stone-500);
+  --color-outline-variant: light-dark(var(--color-stone-200), var(--color-stone-700));
   --color-primary: light-dark(var(--color-violet-700), var(--color-violet-300));
+  --color-on-primary: light-dark(var(--color-white), var(--color-stone-900));
 
   --font-sans: 'Atkinson Hyperlegible Next Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Atkinson Hyperlegible Mono Variable', ui-monospace, monospace;
@@ -58,5 +61,48 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-primary;
+  }
+}
+
+/*
+ * A full-bleed grid: content sits in a centred column of at most 64rem, and a
+ * band can reach from edge to edge while its own content stays in line.
+ */
+@utility page-grid {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(1rem, 1fr)
+    [content-start] min(64rem, calc(100% - 2rem))
+    [content-end] minmax(1rem, 1fr)
+    [full-end];
+
+  /* Zero specificity, so a child that is itself full-bleed can override it. */
+  :where(&) > * {
+    grid-column: content;
+  }
+}
+
+@utility full-bleed {
+  grid-column: full;
+  display: grid;
+  grid-template-columns: subgrid;
+
+  /* Zero specificity, so a child that is itself full-bleed can override it. */
+  :where(&) > * {
+    grid-column: content;
+  }
+}
+
+/*
+ * The one transition for state changes like hover. Everything that changes
+ * colour uses it, so all of it moves at the same speed.
+ */
+@utility transition-state {
+  transition-property: color, background-color, border-color, text-decoration-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }

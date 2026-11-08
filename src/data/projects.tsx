@@ -301,7 +301,7 @@ mako kv get my-app log-level`,
     howItWorks: () => (
       <p>
         It has the vocabulary for HSK 2.0 and 3.0 and asks you each word again just before you'd
-        forget it. Games mix up the practice.
+        forget it. It has interactive games too.
       </p>
     ),
     status: () => <p>I host it for myself. The code isn't public.</p>,

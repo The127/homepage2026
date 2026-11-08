@@ -57,10 +57,13 @@ for, not what it looks like:
 | Token | Use | Light | Dark |
 | --- | --- | --- | --- |
 | `surface` | Page background | stone-50 | stone-900 |
+| `surface-container` | Bands like the page header and footer | stone-100 | stone-800 |
 | `on-surface` | Text | stone-900 | stone-100 |
 | `on-surface-variant` | Secondary text | stone-600 | stone-400 |
-| `outline-variant` | Dividers | stone-200 | stone-800 |
-| `primary` | Links and focus | violet-700 | violet-300 |
+| `outline` | Borders of outlined buttons | stone-500 | stone-500 |
+| `outline-variant` | Dividers, card and chip borders | stone-200 | stone-700 |
+| `primary` | Links, buttons and focus | violet-700 | violet-300 |
+| `on-primary` | Text on filled buttons | white | stone-900 |
 
 There is one accent colour, `primary`. Use it only for things you can click
 or that have focus. Apple warns against using the same colour for different
@@ -76,6 +79,10 @@ current values:
 | `on-surface` on `surface` | 16.8:1 | 16.0:1 |
 | `on-surface-variant` on `surface` | 7.3:1 | 6.8:1 |
 | `primary` on `surface` | 7.0:1 | 9.4:1 |
+| `on-surface-variant` on `surface-container` | 7.0:1 | 5.9:1 |
+| `primary` on `surface-container` | 6.7:1 | 8.2:1 |
+| `on-primary` on `primary` | 7.3:1 | 9.4:1 |
+| `outline` on any surface | at least 4.4:1 | at least 3.2:1 |
 
 If you change a colour, check these pairs again.
 
@@ -112,6 +119,46 @@ are exempt.
 Each page has a skip link to the main content, as the first thing you can
 tab to (WCAG 2.4.1).
 
+## Components
+
+The site uses three components from Material 3, with the sizes from Material
+Web's component tokens. They give the pages the look of an interface instead
+of a document.
+
+- `Button` for actions, like "All projects" or a project's docs. With `href`
+  it's a link, with `onClick` a real button, and both look the same. It's 44px
+  tall with fully rounded ends. Material's buttons are 40px, but our target
+  size rule asks for 44px. A filled button is for the main action in a place,
+  an outlined button for the others.
+- `Chip` for small labels, like a language or a release type, and `Chips` for
+  a row of them. Chips aren't clickable, so they must not look like buttons:
+  a filled `outline-variant` background at 60%, no border, 6px corners and
+  full text colour. That keeps them visible on a hovered card, too. Text on a
+  chip has at least 11:1 contrast in both themes.
+- `Card` for things in a grid, like projects, contributions and albums. It
+  has a thin `outline-variant` border, 12px corners and no shadow. In a
+  `ProjectCard`, the title link covers the whole card, and other links in the
+  card sit above it.
+
+The page header and the footer are bands across the full window width, on
+`surface-container`. Their content stays in the 64rem column. `Band` draws
+such a band, and the `page-grid` and `full-bleed` utilities in `src/app.css`
+do the layout.
+
+If the same classes for a visible element show up in a second place, make
+them a component instead of copying them.
+
+## Content from other services
+
+The site itself sets no cookies and sends nothing to other services. A
+player or widget from another service, like Spotify's, loads only after a
+click. Until then the page shows a button and one sentence on what loading
+it does. `SpotifyPlayer` works that way.
+
+Measured in Chrome: Spotify's player sets a cookie for 365 days and reports
+to Sentry, and Bandcamp's player loads Google Tag Manager. Neither may load
+with the page.
+
 ## Icons
 
 Brand logos like GitHub come from [Simple Icons](https://simpleicons.org/)
@@ -135,8 +182,11 @@ focus (WCAG 2.4.7 and 2.4.13). Never remove the outline without replacing it.
 Add motion only when it explains something, like where a panel came from.
 Apple says not to add motion for the sake of motion.
 
-Transitions take 150ms to 300ms, which is Material's `short3` to `medium2`
-range. With reduced motion turned on, nothing moves (`motion-safe:` in
+Colour changes, like hover, use the `transition-state` utility from
+`src/app.css`: 150ms, Material's `short3`. Don't write a transition by hand,
+so everything changes at the same speed.
+Other transitions take 150ms to 300ms, which is Material's `short3` to
+`medium2` range. With reduced motion turned on, nothing moves (`motion-safe:` in
 Tailwind, WCAG 2.3.3).
 
 Nothing animates on scroll or plays on its own. WCAG counts content that

@@ -1,35 +1,53 @@
-export interface Track {
-  title: string;
-  src: string;
-}
-
 export interface Album {
   title: string;
-  kind: 'Album' | 'EP';
+  /** The release type as Spotify lists it. */
+  kind: 'Album' | 'EP' | 'Single';
   year: number;
   cover: string;
   coverAlt: string;
-  bandcamp: string;
-  spotify?: string;
-  tracks: Track[];
+  /** The ID in the album's Spotify URL, used for the link and the player. */
+  spotifyId: string;
+  bandcamp?: string;
+  tracks: string[];
 }
 
 export const albums: Album[] = [
   {
-    title: 'Nightfall',
+    title: 'Placeholder Graphic',
+    kind: 'Single',
+    year: 2025,
+    cover: '/covers/placeholder-graphic.jpg',
+    coverAlt: 'Cover of Placeholder Graphic: pixelated shapes in blue, orange and red on a grey background.',
+    spotifyId: '1Nt2ukjNNqzaeX31zhABKb',
+    tracks: ['Outlaw', 'Brainhack'],
+  },
+  {
+    title: '404 Album not found',
     kind: 'Album',
+    year: 2022,
+    cover: '/covers/404-album-not-found.jpg',
+    coverAlt: 'Cover of 404 Album not found: a drawing of hanging vines and roots, in blue and turquoise.',
+    spotifyId: '1l9LlUd9ctbrlTorH6ZfP4',
+    bandcamp: 'https://liaaura.bandcamp.com/album/404-album-not-found',
+    tracks: [
+      'Connection Lost',
+      'Unresolved Dependencies',
+      'VTable',
+      'Installation Failure',
+      'I Bricked My Boot Process',
+      'Coroutine',
+      'Interrupt',
+    ],
+  },
+  {
+    title: 'Nightfall',
+    kind: 'EP',
     year: 2022,
     cover: '/covers/nightfall.jpg',
     coverAlt: 'Cover of Nightfall: a digitally edited pencil drawing of a screaming creature with tentacles, in purple and pink.',
+    spotifyId: '2vTQFkMUieDZobF6QOsw8L',
     bandcamp: 'https://liaaura.bandcamp.com/album/nightfall',
-    tracks: [
-      { title: 'Blindingly Dark', src: '/audio/nightfall-blindingly-dark.mp3' },
-      { title: 'Nightfall', src: '/audio/nightfall-nightfall.mp3' },
-      { title: 'Vermillion Vortex', src: '/audio/nightfall-vermillion-vortex.mp3' },
-      { title: 'Fears And Happiness', src: '/audio/nightfall-fears-and-happiness.mp3' },
-      { title: 'Seraphim', src: '/audio/nightfall-seraphim.mp3' },
-      { title: 'North', src: '/audio/nightfall-north.mp3' },
-    ],
+    tracks: ['Blindingly Dark', 'Nightfall', 'Vermillion Vortex', 'Fears And Happiness', 'Seraphim', 'North'],
   },
   {
     title: 'Opportunity',
@@ -37,49 +55,46 @@ export const albums: Album[] = [
     year: 2022,
     cover: '/covers/opportunity.jpg',
     coverAlt: 'Cover of Opportunity: a digitally edited pencil drawing of an insect-like creature and a trumpet flower, in yellow and green.',
+    spotifyId: '6yOsdBm9pb9S8wrVnV3q0N',
     bandcamp: 'https://liaaura.bandcamp.com/album/opportunity',
-    spotify: 'https://open.spotify.com/album/6yOsdBm9pb9S8wrVnV3q0N',
     tracks: [
-      { title: 'Opportunity', src: '/audio/opportunity-opportunity.mp3' },
-      { title: 'Mutant Rising', src: '/audio/opportunity-mutant-rising.mp3' },
-      { title: 'Magic Rites', src: '/audio/opportunity-magic-rites.mp3' },
-      { title: 'Dreaming Of A Place Far Away', src: '/audio/opportunity-dreaming-of-a-place-far-away.mp3' },
-      { title: 'Transmission', src: '/audio/opportunity-transmission.mp3' },
-      { title: 'Bitter End', src: '/audio/opportunity-bitter-end.mp3' },
+      'Opportunity',
+      'Mutant Rising',
+      'Magic Rites',
+      'Dreaming Of A Place Far Away',
+      'Transmission',
+      'Bitter End',
     ],
   },
   {
     title: 'Forces',
-    kind: 'Album',
+    kind: 'EP',
     year: 2022,
     cover: '/covers/forces.jpg',
     coverAlt: 'Cover of Forces: a digitally edited pencil drawing of tangled creatures with skulls, in dark purple and green.',
+    spotifyId: '1Hyj7yQUmlx3FeBqeCOhGi',
     bandcamp: 'https://liaaura.bandcamp.com/album/forces',
-    spotify: 'https://open.spotify.com/album/1Hyj7yQUmlx3FeBqeCOhGi',
-    tracks: [
-      { title: 'Awakening', src: '/audio/forces-awakening.mp3' },
-      { title: 'Reapers', src: '/audio/forces-reapers.mp3' },
-      { title: 'Shattered Worlds', src: '/audio/forces-shattered-worlds.mp3' },
-      { title: 'Saviour', src: '/audio/forces-saviour.mp3' },
-      { title: 'Return', src: '/audio/forces-return.mp3' },
-      { title: 'Advancing Forces', src: '/audio/forces-advancing-forces.mp3' },
-    ],
+    tracks: ['Awakening', 'Reapers', 'Shattered Worlds', 'Saviour', 'Return', 'Advancing Forces'],
   },
   {
     title: 'Journey',
-    kind: 'Album',
+    kind: 'EP',
     year: 2022,
     cover: '/covers/journey.jpg',
     coverAlt: 'Cover of Journey: a digitally edited pencil drawing of a twisted tree, in blue and purple.',
+    spotifyId: '1eGmsKvnZzrKwZHoUwRmEr',
     bandcamp: 'https://liaaura.bandcamp.com/album/journey',
-    spotify: 'https://open.spotify.com/album/1eGmsKvnZzrKwZHoUwRmEr',
     tracks: [
-      { title: 'Dark Star', src: '/audio/journey-dark-star.mp3' },
-      { title: 'Suns Colliding', src: '/audio/journey-suns-colliding.mp3' },
-      { title: 'Electronic Harmonies', src: '/audio/journey-electronic-harmonies.mp3' },
-      { title: 'Never Be Alone', src: '/audio/journey-never-be-alone.mp3' },
-      { title: 'Quantum Diffuser', src: '/audio/journey-quantum-diffuser.mp3' },
-      { title: 'Drifter', src: '/audio/journey-drifter.mp3' },
+      'Dark Star',
+      'Suns Colliding',
+      'Electronic Harmonies',
+      'Never Be Alone',
+      'Quantum Diffuser',
+      'Drifter',
     ],
   },
 ];
+
+export function spotifyUrl(album: Album): string {
+  return `https://open.spotify.com/album/${album.spotifyId}`;
+}

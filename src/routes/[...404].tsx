@@ -1,5 +1,6 @@
-import { A } from '@solidjs/router';
 import { HttpStatusCode } from '@solidjs/start';
+import Button from '~/components/Button';
+import PageHeader from '~/components/PageHeader';
 import PageMeta from '~/components/PageMeta';
 
 export default function NotFound() {
@@ -7,8 +8,9 @@ export default function NotFound() {
     <>
       <PageMeta title="Page not found" description="This page doesn't exist." />
       <HttpStatusCode code={404} />
-      <h1>Page not found</h1>
-      <p class="mt-4">This page doesn't exist. <A href="/">Go to the home page</A>.</p>
+      <PageHeader title="Page not found" intro="This page doesn't exist.">
+        <Button href="/">Go to the home page</Button>
+      </PageHeader>
     </>
   );
 }

@@ -6,11 +6,12 @@ const EMAIL = 'karolinkostial@gmail.com';
 
 export default function Impressum() {
   return (
-    <div lang="de">
+    <div lang="de" class="full-bleed">
       <PageMeta title="Impressum" description="Impressum und Datenschutzhinweis." />
-      <PageHeader title="Impressum">
-        <span lang="en">I'm doxxing myself so I don't get sued, as § 5 DDG requires.</span>
-      </PageHeader>
+      <PageHeader
+        title="Impressum"
+        intro={<span lang="en">I'm doxxing myself so I don't get sued, as § 5 DDG requires.</span>}
+      />
 
       <Section title="Angaben gemäß § 5 DDG">
         <address class="not-italic">
@@ -29,10 +30,21 @@ export default function Impressum() {
       </Section>
 
       <Section title="Datenschutz">
-        <p class="max-w-prose">
-          Diese Website ist ein privates, nicht-kommerzielles Projekt. Es werden keine Cookies
-          gesetzt, keine personenbezogenen Daten erhoben und keine Tracking-Dienste eingesetzt.
-        </p>
+        <div class="max-w-prose space-y-4">
+          <p>
+            Diese Website ist ein privates, nicht-kommerzielles Projekt. Sie selbst setzt keine
+            Cookies, erhebt keine personenbezogenen Daten und nutzt keine Tracking-Dienste.
+          </p>
+          <p>
+            Auf der Seite „Music“ lässt sich für jede Veröffentlichung der Player von Spotify
+            laden. Er lädt erst, wenn Sie auf „Load Spotify player“ klicken. Danach setzt Spotify
+            Cookies und erhält Ihre IP-Adresse. Dafür gilt die{' '}
+            <a href="https://www.spotify.com/de/legal/privacy-policy/">
+              Datenschutzerklärung von Spotify
+            </a>
+            .
+          </p>
+        </div>
       </Section>
     </div>
   );

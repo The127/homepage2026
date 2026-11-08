@@ -47,9 +47,9 @@ export default function About() {
           </p>
           <p>
             At heart I'm a developer. I bring developer thinking, automation and engineering to
-            operations. Some people call that DevOps, but the word often just means a sysadmin with
-            a new title. What I care about most is that software stays cheap to change, because it
-            will have to change. A clear structure and well-known patterns go a long way there.
+            operations. That's DevOps, but not the kind where sysadmins just got a new title. What
+            I care about most is that software stays cheap to change, because it will have to
+            change. Good structure and well-known patterns help with that.
           </p>
         </div>
       </Section>

@@ -1,8 +1,8 @@
-import { A } from '@solidjs/router';
-import { For, Show } from 'solid-js';
+import { For } from 'solid-js';
+import Card from '~/components/Card';
 import PageHeader from '~/components/PageHeader';
 import PageMeta from '~/components/PageMeta';
-import ProjectLinks from '~/components/ProjectLinks';
+import ProjectCard from '~/components/ProjectCard';
 import Section from '~/components/Section';
 import { contributions } from '~/data/contributions';
 import { libraries, type Library } from '~/data/libraries';
@@ -14,10 +14,10 @@ function LibraryList(props: { language: Library['language'] }) {
       <h3 class="mt-8 text-base font-semibold text-on-surface-variant first:mt-0">
         {props.language}
       </h3>
-      <ul class="mt-3 space-y-3">
+      <ul class="mt-3 divide-y divide-outline-variant border-y border-outline-variant">
         <For each={libraries.filter(l => l.language === props.language)}>
           {l => (
-            <li>
+            <li class="grid gap-x-6 gap-y-0.5 py-3 sm:grid-cols-[11rem_1fr]">
               <a href={l.repo} class="font-semibold">{l.name}</a>
               <p>{l.summary}</p>
             </li>
@@ -35,43 +35,30 @@ export default function Projects() {
         title="Projects"
         description="Open-source projects, libraries and contributions by Karolin Kostial."
       />
-      <PageHeader title="Projects">Most of what I build is open source.</PageHeader>
+      <PageHeader title="Projects" intro="Most of what I build is open source." />
 
-      <For each={projects}>
-        {p => (
-          <section class="grid gap-x-10 gap-y-2 border-t border-outline-variant py-8 md:grid-cols-[10rem_1fr]">
-            <div>
-              <h2 class="text-xl">
-                <A href={`/projects/${p.slug}`}>{p.name}</A>
-              </h2>
-              <p class="mt-1 text-sm text-on-surface-variant">{p.languages.join(' · ')}</p>
-            </div>
-            <div class="max-w-prose">
-              <p>{p.summary}</p>
-              <Show when={p.note}>
-                <p class="mt-1 text-on-surface-variant">{p.note}</p>
-              </Show>
-              <ProjectLinks project={p} class="mt-2 text-sm" />
-            </div>
-          </section>
-        )}
-      </For>
+      <Section title="Projects">
+        <div class="grid gap-4 lg:grid-cols-2">
+          <For each={projects}>{p => <ProjectCard project={p} links />}</For>
+        </div>
+      </Section>
 
       <Section title="Contributions">
-        <p>Projects by other people that I've worked on.</p>
-        <ul class="mt-6 space-y-6">
+        <p class="max-w-prose">Projects by other people that I've worked on.</p>
+        <div class="mt-6 grid gap-4 lg:grid-cols-2">
           <For each={contributions}>
             {c => (
-              <li>
-                <span class="font-semibold">{c.name}</span>
-                <span class="text-on-surface-variant">, {c.about.charAt(0).toLowerCase() + c.about.slice(1)}</span>
-                <p class="mt-1">
-                  {c.work} <a href={c.link.href}>{c.link.label}</a>
+              <Card class="flex flex-col">
+                <h3 class="text-xl">{c.name}</h3>
+                <p class="mt-1 text-on-surface-variant">{c.about}</p>
+                <p class="mt-3">{c.work}</p>
+                <p class="mt-auto pt-4 text-sm">
+                  <a href={c.link.href}>{c.link.label}</a>
                 </p>
-              </li>
+              </Card>
             )}
           </For>
-        </ul>
+        </div>
       </Section>
 
       <Section title="Libraries">

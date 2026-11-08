@@ -1,7 +1,11 @@
 import { A, useParams } from '@solidjs/router';
+import { siGithub } from 'simple-icons';
 import { JSX, Show } from 'solid-js';
+import BrandIcon from '~/components/BrandIcon';
+import Button from '~/components/Button';
+import Chips from '~/components/Chips';
+import PageHeader from '~/components/PageHeader';
 import PageMeta from '~/components/PageMeta';
-import ProjectLinks from '~/components/ProjectLinks';
 import SharedSection from '~/components/Section';
 import NotFound from '~/routes/[...404]';
 import { findProject, type Project } from '~/data/projects';
@@ -16,26 +20,18 @@ function Section(props: { title: string; children: JSX.Element }) {
 
 /** Points to the full documentation, so the page doesn't have to repeat it. */
 function MoreLink(props: { project: Project }) {
-  const docs = () => (props.project.website?.label === 'Docs' ? props.project.website : undefined);
+  const target = () => {
+    const site = props.project.website;
+    if (site?.label === 'Docs') return { href: site.href, label: 'documentation' };
+    if (props.project.repo) return { href: props.project.repo, label: 'README on GitHub' };
+    return undefined;
+  };
   return (
-    <Show
-      when={docs()}
-      fallback={
-        <Show when={props.project.repo}>
-          {repo => (
-            <div class="border-t border-outline-variant pt-10 md:pl-[12.5rem]">
-              <p>
-                There's more in the <a href={repo()}>README on GitHub</a>.
-              </p>
-            </div>
-          )}
-        </Show>
-      }
-    >
-      {d => (
+    <Show when={target()}>
+      {t => (
         <div class="border-t border-outline-variant pt-10 md:pl-[12.5rem]">
           <p>
-            There's more in the <a href={d().href}>documentation</a>.
+            There's more in the <a href={t().href}>{t().label}</a>.
           </p>
         </div>
       )}
@@ -52,18 +48,35 @@ export default function ProjectPage() {
       {p => (
         <>
           <PageMeta title={p().name} description={p().summary} />
-          <div class="pb-12">
-            <p><A href="/projects">Projects</A></p>
-            <h1 class="mt-2">{p().name}</h1>
-            <p class="mt-2 text-on-surface-variant">
-              {p().kind} · {p().languages.join(' · ')}
-            </p>
-            <p class="mt-6 max-w-prose text-lg">{p().summary}</p>
-            <Show when={p().note}>
-              <p class="mt-1 text-on-surface-variant">{p().note}</p>
+          <PageHeader
+            title={p().name}
+            above={<A href="/projects">Projects</A>}
+            intro={
+              <>
+                {p().summary}
+                <Show when={p().note}>
+                  <span class="mt-1 block text-base text-on-surface-variant">{p().note}</span>
+                </Show>
+              </>
+            }
+          >
+            <Chips items={[p().kind, ...p().languages]} />
+            <Show when={p().repo || p().website}>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <Show when={p().website}>
+                  {site => <Button href={site().href}>{site().label}</Button>}
+                </Show>
+                <Show when={p().repo}>
+                  {repo => (
+                    <Button href={repo()} variant={p().website ? 'outlined' : 'filled'}>
+                      <BrandIcon icon={siGithub} />
+                      GitHub
+                    </Button>
+                  )}
+                </Show>
+              </div>
             </Show>
-            <ProjectLinks project={p()} class="mt-4" />
-          </div>
+          </PageHeader>
 
           <Show when={p().problem}>
             {problem => <Section title="The problem">{problem()()}</Section>}
