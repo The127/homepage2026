@@ -37,12 +37,18 @@ export default function Layout(props: { children: JSX.Element }) {
 
         <main id="main" class="flex-1 py-12">{props.children}</main>
 
-        <footer class="flex flex-wrap gap-x-6 border-t border-outline-variant py-4 text-sm">
-          <a href="https://github.com/The127" rel="noopener" class={`${barLink} gap-2`}>
-            <BrandIcon icon={siGithub} />
-            GitHub
-          </a>
-          <A href="/impressum" class={barLink}>Impressum</A>
+        <footer class="border-t border-outline-variant py-4 text-sm">
+          <div class="flex flex-wrap gap-x-6">
+            <a href="https://github.com/The127" rel="noopener" class={`${barLink} gap-2`}>
+              <BrandIcon icon={siGithub} />
+              GitHub
+            </a>
+            <A href="/impressum" class={barLink}>Impressum</A>
+          </div>
+          <p class="mt-2 text-on-surface-variant">
+            <span aria-hidden="true">🍪 </span>This site uses no cookies. For cookies, check your
+            kitchen.
+          </p>
         </footer>
       </div>
     </>
