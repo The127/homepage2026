@@ -10,9 +10,9 @@ const NAV = [
 ];
 
 const barLink =
-  'inline-flex min-h-11 items-center text-on-surface no-underline hover:underline [&.active]:underline';
+  'inline-flex min-h-11 items-center text-on-surface no-underline hover:text-primary hover:underline [&.active]:underline';
 const footerLink =
-  'inline-flex min-h-8 items-center gap-2 text-on-surface no-underline hover:underline';
+  'inline-flex min-h-8 items-center gap-2 text-on-surface no-underline hover:text-primary hover:underline';
 
 export default function Layout(props: { children: JSX.Element }) {
   return (

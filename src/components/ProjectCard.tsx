@@ -16,7 +16,7 @@ export default function ProjectCard(props: { project: Project; links?: boolean }
       <h3 class="text-xl">
         <A
           href={`/projects/${p().slug}`}
-          class="text-on-surface no-underline after:absolute after:inset-0 after:rounded-xl hover:underline"
+          class="text-on-surface no-underline after:absolute after:inset-0 after:rounded-xl hover:text-primary hover:underline"
         >
           {p().name}
         </A>

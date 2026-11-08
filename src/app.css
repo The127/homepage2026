@@ -10,6 +10,7 @@
   --color-outline: var(--color-stone-500);
   --color-outline-variant: light-dark(var(--color-stone-200), var(--color-stone-700));
   --color-primary: light-dark(var(--color-violet-700), var(--color-violet-300));
+  --color-primary-strong: light-dark(var(--color-violet-900), var(--color-violet-100));
   --color-on-primary: light-dark(var(--color-white), var(--color-stone-900));
 
   --font-sans: 'Atkinson Hyperlegible Next Variable', ui-sans-serif, system-ui, sans-serif;
@@ -44,7 +45,7 @@
   }
 
   a {
-    @apply text-primary underline underline-offset-2;
+    @apply text-primary underline underline-offset-2 transition-state hover:text-primary-strong;
   }
 
   code {
