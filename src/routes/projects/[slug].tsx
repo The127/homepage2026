@@ -48,7 +48,7 @@ export default function ProjectPage() {
     <Show when={project()} fallback={<NotFound />}>
       {p => (
         <>
-          <PageMeta title={p().name} description={p().summary} />
+          <PageMeta title={p().name} description={p().summary} image={p().image} />
           <PageHeader
             title={p().name}
             above={<A href="/projects">Projects</A>}
@@ -78,6 +78,18 @@ export default function ProjectPage() {
               </div>
             </Show>
           </PageHeader>
+
+          <Show when={p().image}>
+            {image => (
+              <img
+                src={image().src}
+                alt={image().alt}
+                width="1200"
+                height="630"
+                class="mt-10 w-full rounded-xl border border-outline-variant"
+              />
+            )}
+          </Show>
 
           <Show when={p().problem}>
             {problem => <Section title="The problem">{problem()()}</Section>}

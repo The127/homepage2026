@@ -1,5 +1,6 @@
 import type { JSX } from 'solid-js';
 import Link from '~/components/Link';
+import type { Image } from '~/site';
 
 export interface Link {
   label: string;
@@ -27,6 +28,8 @@ export interface Project {
   featured?: boolean;
   /** A short note on how active the project is, shown in lists too. */
   note?: string;
+  /** A 1200x630 picture, shown on the card and the page and used for link previews. */
+  image?: Image;
 
   /** What goes wrong without the project. */
   problem?: Content;
@@ -224,6 +227,10 @@ aibox run`,
     summary: 'A 3D game where you run a hot dog stand at night, until something about your customers starts to feel off.',
     languages: ['Godot', 'GDScript'],
     website: { label: 'Play it', href: 'https://hotdogstand.vercel.app' },
+    image: {
+      src: '/games/hotdogstand.jpg',
+      alt: 'The title screen of Night Shift at Walter\'s: a lit hot dog stand at night with a customer at the window.',
+    },
     problem: () => (
       <p>Ever wanted to serve hot dogs at night, from 10 pm to 2 am? Me neither, but I made a game about it.</p>
     ),
@@ -266,6 +273,10 @@ aibox run`,
     website: {
       label: 'Streamer guide',
       href: 'https://github.com/The127/fishygame2/blob/main/docs/STREAMER_GUIDE.md',
+    },
+    image: {
+      src: '/games/fishymarblerun-2.jpg',
+      alt: 'The title screen of FishyMarbleRun 2: colourful fish swimming under water, with the line "Chat joins as fish. Fish race down the track."',
     },
     problem: () => (
       <p>

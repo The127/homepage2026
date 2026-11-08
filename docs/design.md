@@ -158,6 +158,18 @@ do the layout.
 If the same classes for a visible element show up in a second place, make
 them a component instead of copying them.
 
+## Link previews
+
+Every page sets its title, description and preview image with `PageMeta`.
+It writes the Open Graph and Twitter card tags that Discord, Mastodon, Slack
+and others read, with absolute URLs from `SITE_URL` in `src/site.ts`. Change
+that one constant when the site moves to its own domain.
+
+Preview images are 1200×630. Pages without their own use `public/og.jpg`, a
+dark card with the logo, the name and the home page description. A project
+with an `image` uses it as its preview, on its card and on its page. The
+`theme-color` is the violet, which Discord shows as the edge of the embed.
+
 ## Content from other services
 
 The site itself sets no cookies and sends nothing to other services. A

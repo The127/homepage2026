@@ -44,7 +44,7 @@ export default function Projects() {
         </div>
       </Section>
 
-      <Section title="Games">
+      <Section title="Games" id="games">
         <div class="grid gap-4 lg:grid-cols-2">
           <For each={projects.filter(isGame)}>{p => <ProjectCard project={p} links />}</For>
         </div>

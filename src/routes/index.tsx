@@ -74,6 +74,9 @@ export default function Home() {
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <For each={projects.filter(isGame)}>{p => <ProjectCard project={p} links />}</For>
         </div>
+        <div class="mt-6">
+          <Button href="/projects#games" variant="outlined">All games</Button>
+        </div>
       </Section>
 
       <Section title="Music">
