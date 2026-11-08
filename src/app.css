@@ -44,6 +44,18 @@
     @apply text-primary underline underline-offset-2;
   }
 
+  code {
+    @apply font-mono text-[0.9375em];
+  }
+
+  pre {
+    @apply overflow-x-auto rounded border border-outline-variant p-4 text-sm;
+  }
+
+  pre code {
+    @apply text-[1em];
+  }
+
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-primary;
   }

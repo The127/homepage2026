@@ -42,8 +42,7 @@ export default function Home() {
       <p class="mt-1 text-sm text-on-surface-variant">Updated {NOW_UPDATED}</p>
       <ul class="mt-4 list-disc space-y-2 pl-5">
         <li>
-          At work I'm building <A href="/projects/tidegate">Tidegate</A>, which is in early
-          development.
+          I'm building <A href="/projects/tidegate">Tidegate</A>, which is in early development.
         </li>
         <li>I'm learning to scuba dive and I'm doing my PADI Open Water Diver course.</li>
         <li>I'm learning Chinese and I'm at HSK&nbsp;2.</li>

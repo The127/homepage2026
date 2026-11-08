@@ -32,10 +32,7 @@ export default function Projects() {
         description="Open-source projects, libraries and contributions by Karolin Kostial."
       />
       <h1>Projects</h1>
-      <p class="mt-4">
-        Most of what I build is open source. Some of it I build at work, most of it in my free
-        time.
-      </p>
+      <p class="mt-4">Most of what I build is open source.</p>
 
       <ul class="mt-6 space-y-8">
         <For each={projects}>
@@ -46,8 +43,8 @@ export default function Projects() {
                 <span class="text-sm text-on-surface-variant">{p.languages.join(' · ')}</span>
               </div>
               <p class="mt-1">{p.summary}</p>
-              <Show when={p.status}>
-                <p class="mt-1 text-on-surface-variant">{p.status}</p>
+              <Show when={p.note}>
+                <p class="mt-1 text-on-surface-variant">{p.note}</p>
               </Show>
               <ProjectLinks project={p} class="mt-1 text-sm" />
             </li>

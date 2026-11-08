@@ -26,7 +26,7 @@ export const contributions: Contribution[] = [
   {
     name: 'Dex',
     about: 'An OpenID Connect identity provider.',
-    work: "A fix for OIDC discovery with custom root certificates. At Giant Swarm I also maintain our fork of Dex.",
+    work: 'A fix for OIDC discovery with custom root certificates.',
     link: mergedPullRequests('repo:dexidp/dex'),
   },
   {
