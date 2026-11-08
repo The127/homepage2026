@@ -238,6 +238,13 @@ CHECK command -v htop`,
     summary: 'A small, fast OCI container registry.',
     languages: ['Go'],
     repo: 'https://github.com/The127/dockyard',
+    problem: () => (
+      <p>
+        I wanted to understand the container image format. And I wanted a registry that's very
+        lightweight but still scales. It should be open source and easy to use, work well with
+        OIDC, have tenants, and start up fast enough for local CI.
+      </p>
+    ),
     howItWorks: () => (
       <p>
         Dockyard implements the OCI Distribution Specification, so Docker, Podman and other tools
