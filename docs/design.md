@@ -21,6 +21,12 @@ change the token instead of writing the value into a component.
 Use one typeface for all text, plus a monospace font for code. Apple says to
 keep the number of typefaces low, because mixing them blurs the hierarchy.
 
+The text font is [Atkinson Hyperlegible Next](https://www.brailleinstitute.org/freefont/),
+and code uses its companion, Atkinson Hyperlegible Mono. The Braille
+Institute designed them so that similar letters, like `l`, `I` and `1`, are
+hard to confuse. Both come from Fontsource and are served from the site
+itself, so no visitor data goes to a font service.
+
 Use regular, medium, semibold and bold weights. Avoid thin and light weights,
 because they're hard to read at small sizes.
 
@@ -53,7 +59,7 @@ for, not what it looks like:
 | `on-surface` | Text | stone-900 | stone-100 |
 | `on-surface-variant` | Secondary text | stone-600 | stone-400 |
 | `outline-variant` | Dividers | stone-200 | stone-800 |
-| `primary` | Links and focus | blue-700 | blue-300 |
+| `primary` | Links and focus | violet-700 | violet-300 |
 
 There is one accent colour, `primary`. Use it only for things you can click
 or that have focus. Apple warns against using the same colour for different
@@ -68,7 +74,7 @@ current values:
 | --- | --- | --- |
 | `on-surface` on `surface` | 16.8:1 | 16.0:1 |
 | `on-surface-variant` on `surface` | 7.3:1 | 6.8:1 |
-| `primary` on `surface` | 6.5:1 | 9.7:1 |
+| `primary` on `surface` | 7.0:1 | 9.4:1 |
 
 If you change a colour, check these pairs again.
 
