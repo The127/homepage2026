@@ -1,5 +1,7 @@
 import { A } from '@solidjs/router';
+import { siGithub } from 'simple-icons';
 import { JSX } from 'solid-js';
+import BrandIcon from '~/components/BrandIcon';
 
 const NAV = [
   { href: '/projects', label: 'Projects' },
@@ -36,7 +38,10 @@ export default function Layout(props: { children: JSX.Element }) {
         <main id="main" class="flex-1 py-12">{props.children}</main>
 
         <footer class="flex flex-wrap gap-x-6 border-t border-outline-variant py-4 text-sm">
-          <a href="https://github.com/The127" rel="noopener" class={barLink}>GitHub</a>
+          <a href="https://github.com/The127" rel="noopener" class={`${barLink} gap-2`}>
+            <BrandIcon icon={siGithub} />
+            GitHub
+          </a>
           <a href="/impressum.html" class={barLink}>Impressum</a>
         </footer>
       </div>

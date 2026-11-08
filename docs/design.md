@@ -101,6 +101,19 @@ are exempt.
 Each page has a skip link to the main content, as the first thing you can
 tab to (WCAG 2.4.1).
 
+## Icons
+
+Brand logos like GitHub come from [Simple Icons](https://simpleicons.org/)
+through the `BrandIcon` component. If a page needs a general icon, like a
+play button, use [Lucide](https://lucide.dev/) and import each icon on its
+own, as in `lucide-solid/icons/play`, so only the icons in use end up in the
+bundle.
+
+An icon always sits next to a text label and is hidden from screen readers
+with `aria-hidden`. Then the link reads the same with or without the icon,
+and nobody has to guess what a symbol means. Icons are 1.125em, so they
+scale with the text, and use the current text colour.
+
 ## Focus
 
 Everything you can click shows a 2px `primary` outline when it has keyboard

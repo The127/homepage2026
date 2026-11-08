@@ -12,7 +12,7 @@ export default function Projects() {
         {projects.map(p => (
           <li>
             <A href={`/projects/${p.slug}`} class="font-semibold">{p.name}</A>
-            <p>{p.kind}</p>
+            <p>{p.summary}</p>
           </li>
         ))}
       </ul>

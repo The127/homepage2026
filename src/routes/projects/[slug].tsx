@@ -12,7 +12,7 @@ export default function ProjectPage() {
     <Show when={project()} fallback={<NotFound />}>
       {p => (
         <>
-          <PageMeta title={p().name} description={p().kind} />
+          <PageMeta title={p().name} description={p().summary} />
           <p><A href="/projects">Projects</A></p>
           <h1 class="mt-2">{p().name}</h1>
           <p class="mt-4">{p().kind}</p>
